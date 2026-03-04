@@ -1,0 +1,1464 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://water-mi.github.io/kym-doc/cs/computer_network/chapter4/c4/">
+      
+      
+        <link rel="prev" href="../../chapter3/c3/">
+      
+      
+        <link rel="next" href="../../chapter5/c5/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>第四章-网络层：数据平面 - 匡院笔记分享</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="匡院笔记分享" class="md-header__button md-logo" aria-label="匡院笔记分享" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            匡院笔记分享
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第四章-网络层：数据平面
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../compiler/about/" class="md-tabs__link">
+          
+  
+  
+  计算机科学与技术
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="匡院笔记分享" class="md-nav__button md-logo" aria-label="匡院笔记分享" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    匡院笔记分享
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学与技术
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学与技术
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../compiler/about/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编译原理
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机网络
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机网络
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一章-导论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter2/c2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第二章-应用层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter3/c3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第三章-传输层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第四章-网络层：数据平面
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第四章-网络层：数据平面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网络层概述
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网络层概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转发和路由选择：数据平面和控制平面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-effort-service-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网络服务模型（best-effort service model）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        路由器工作原理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="路由器工作原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输入端口处理和基于目的地转发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        交换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输出端口处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何处出现排队？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分组调度
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipv4ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网际协议：ipv4、寻址、ipv6以及其他
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网际协议：ipv4、寻址、ipv6以及其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ipv4 数据报格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ipv4 编址
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-address-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网络地址转换 （network address translation）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ipv6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv4-v6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从 ipv4 到 v6 的迁移
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        泛化转发和 sdn
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middle-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中间盒（middle box）
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter5/c5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第五章-网络层：控制平面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter6/c6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第六章-链路层和局域网
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter7/c7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第七章-无线网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网络层概述
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网络层概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转发和路由选择：数据平面和控制平面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-effort-service-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网络服务模型（best-effort service model）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        路由器工作原理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="路由器工作原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输入端口处理和基于目的地转发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        交换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输出端口处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何处出现排队？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分组调度
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipv4ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网际协议：ipv4、寻址、ipv6以及其他
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网际协议：ipv4、寻址、ipv6以及其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ipv4 数据报格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ipv4 编址
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-address-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网络地址转换 （network address translation）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ipv6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv4-v6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从 ipv4 到 v6 的迁移
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        泛化转发和 sdn
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middle-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中间盒（middle box）
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="-">第四章-网络层：数据平面</h1>
+<h2 id="_1">网络层概述</h2>
+<p>网络层能被分解成两个相互作用的部分，数据平面和控制平面。</p>
+<p>数据平面：从其输入链路向其输出链路转发数据报</p>
+<p>控制平面：协调这些本地的每路由器转发操作</p>
+<p>（路由器不运行应用层和运输层协议）</p>
+<h3 id="_2">转发和路由选择：数据平面和控制平面</h3>
+<p>转发：一个分组到达某个路由器的输入链路，路由器将该分组移动到适当的输出链路（数据平面中的唯一功能）</p>
+<p>路由选择：当分组从发送方流向接收方时，网络层必须决定这些分组所采用的路由或路径（决定从一个主机到另一个主机所遵循的路径，控制平面中实现）</p>
+<p>转发表（每台网络路由器）：路由器检查到达分组首部的一个或多个字段值，在转发表中用首部值索引，来转发分组（首部-输出链路号的有序对）</p>
+<h3 id="best-effort-service-model">网络服务模型（best-effort service model）</h3>
+<ul>
+<li>确保交付. 该服务确保分组最终到达目的地</li>
+<li>具有时延上限的确保交付. 该服务不仅确保分组的交付而且在特定的主机到主机时延上界内交付</li>
+<li>有序分组交付. 该服务确保分组以发送的顺序到达目的地</li>
+<li>确保最小带宽. 这种网络层服务模仿在发送和接收主机之间一条特定比特率的传输链路的行为. 只要发送主机以低于特定比特率的速度传输比特（作为分组的组成部分），则所有分组最终会交付到目的主机</li>
+<li>安全性：网络层能够在源加密所有数据报并在目的地解密它们，从而对所有运输层报文段提供机密性</li>
+</ul>
+<h2 id="_3">路由器工作原理</h2>
+<p><img alt="QQ_1729503902649.png" src="../QQ_1729503902649.png" /></p>
+<p>输入端口：这里的端口指的是路由器的物理输入和输出接口；</p>
+<p>三个方框：左 - 在路由器中执行终结 入物理链路(line termination) 的物理层功能；中 - 与位于入链路远端的数据链路层交互操作来执行数据链路层功能(link layer processing)；右 - 执行查找功能（查询转发表决定路由器输出端口）(lookup forwarding queueing )</p>
+<p>交换结构：链接输入端口和输出端口。是网络路由器中的网络</p>
+<p>输出端口：存储从交换结构接收的分组，通过执行必要的链路层和物理层功能在输出链路上传输这些分组。</p>
+<p>路由选择处理器：路由选择处理器执行控制平面功能</p>
+<h3 id="_4">输入端口处理和基于目的地转发</h3>
+<p><img alt="QQ_1729504553127.png" src="../QQ_1729504553127.png" /></p>
+<p>查找表可以看作是一个目的地址到链路借口的映射，但是由于目的地址范围通常很大，这时可以采用一种最长前缀匹配（longest prefix matching）的方式来转发</p>
+<p>一旦通过查找确定了某分组的输出端口，该分组就能进入交换结构</p>
+<h3 id="_5">交换</h3>
+<p>三种交换技术（内存、总线、互联网络）</p>
+<ul>
+<li>
+<p>经内存交换</p>
+<ol>
+<li>分组到达输入端口，发送路由选择处理器中断信号</li>
+<li>分组从输入端口被复制到路由选择处理器内存中，路由选择处理器从首部提取目的地址</li>
+<li>在转发表中查找适当的输出端口</li>
+<li>分组被复制到输出端口的缓存中</li>
+</ol>
+<p>若每秒可写进/读出内存最多 b 个分组，则吞吐量必然小于 b/2，不能同时转发两个分组，因为经过共享系统总线一次仅能执行一个内存读/写</p>
+</li>
+<li>
+<p>经总线交换</p>
+<p>输入端口经过一根总线将分组直接传送到输出端口</p>
+<ol>
+<li>输入端口为分组计划一个交换机内部标签，指示本地输出端口</li>
+<li>分组在总线上传送和传输到输出端口，该分组能被所有输出端口收到</li>
+<li>仅有与标签匹配的端口才能保存该分组。然后去除标签</li>
+</ol>
+<p>一次只有一个分组能够跨越总线，路由器的交换带宽受到总线速率的限制</p>
+</li>
+<li>
+<p>经互联网络交换</p>
+<p>克服单一、共享式总线带宽限制，使用一个更复杂的互联网络。</p>
+<p>纵横式交换机由 2n 条总线组成，连接 n 个输入端口和 n 个输出端口；输入端口和输出端口横纵交叉，交叉点通过交换结构控制器在任何时候开启和闭合（阻塞小）</p>
+</li>
+</ul>
+<h3 id="_6">输出端口处理</h3>
+<p>输出端口处理去除已经存放在输出端口内存的分组将其发送到输出链路上，包括选择和去除排队的分组进行传输，执行所需的链路层和物理层功能.</p>
+<h3 id="_7">何处出现排队？</h3>
+<p>假定输入线路速率与输出线路速率相同，记为 <span class="arithmatex">\(R_{\rm line}\)</span>（分组数/s），有 n 个输入端口 n 个输出端口，假定所有分组有相同的固定长度，以同步的方式到达输入端口.（在相同的时间间隔内，一个输入链路上能到达 0/1 个分组）</p>
+<p>定义交换结构传送速率 <span class="arithmatex">\(R_{\rm switch}\)</span> 为从输入端口到输出端口能够移动分组的速率，若 <span class="arithmatex">\(R_{\rm switch}\)</span> 是 <span class="arithmatex">\(R_{\rm line}\)</span> 的 n 倍，则在输入端口处会出现微不足道的排队.</p>
+<ol>
+<li>输入排队</li>
+</ol>
+<p>队列首部堵塞：一个输入队列中排队的分组必须等待交换结构发送，因为它被位于队列首部的另一个分组所阻塞.</p>
+<ol>
+<li>输出排队</li>
+</ol>
+<p>当输出端口没有足够的内存来缓存一个入分组时，要么<strong>丢弃到达的分组（弃尾）</strong>要么删除一个或多个已经排队的分组.</p>
+<ol>
+<li>要多少缓存？</li>
+</ol>
+<p>缓存数量应当等于平均往返时延（rtt）乘上链路容量（c）-经验公式</p>
+<p>当有大量的 tcp 流 (n 条）流过链路时，所需缓存数量为：<span class="arithmatex">\(B={\rm RTT}\cdot C/\sqrt N\)</span></p>
+<h3 id="_8">分组调度</h3>
+<ol>
+<li>先进先出(fcfs,fifo)</li>
+<li>优先权排队，每一个分组有自己的优先权；当选择一个分组传输时，优先权排队规则将从优先权最高的非空队列选择传输一个分组，同一个优先权累采用 fifo 方式</li>
+<li>循环和加权公平排队：分类循环传输分组（加权循环）</li>
+</ol>
+<h2 id="ipv4ipv6">网际协议：ipv4、寻址、ipv6以及其他</h2>
+<h3 id="ipv4">ipv4 数据报格式</h3>
+<p><img alt="QQ_1730336070651.png" src="../QQ_1730336070651.png" /></p>
+<ul>
+<li>版本：不同的 ip 版本使用不同的数据报格式</li>
+<li>首部长度：ipv4 数据包可能包含一些可变数量的选项，用这 4 比特来确定载荷时即开始的地方，大多数不包含选项，所以一般的首部 <strong>20 字节</strong></li>
+<li>服务类型（tos）</li>
+<li>数据包长度</li>
+<li>标识、标志、片偏移：大的 ip 数据报可能会被分片</li>
+<li>寿命（time-to-live, ttl）：每当一台路由器处理数据包时，该值减一，若减为 0，则数据报被丢弃. 来防止数据报不会永远在网络中循环.</li>
+<li>协议，该字段值指示 ip 数据报的数据部分应该交给哪个特定的运输层协议</li>
+<li>检验和（chksum）</li>
+<li>地址</li>
+<li>选项</li>
+<li>数据（有效载荷，payload）</li>
+</ul>
+<h3 id="ipv4_1">ipv4 编址</h3>
+<p>主机与物理链路之间的边界叫做<strong>接口（interface）</strong></p>
+<p>子网和子网掩码.（掩码掩住的部分被称作网络部分）</p>
+<p>ip 广播地址 255.255.255.255：当一台主机发送一个目的地址为 255.255.255.255 的数据报时，该报文会交付给同一个网络中的所有主机.</p>
+<p>先看一个组织是如何为其设备得到一个地址块，然后再看一个设备如何从某组织的地址块中分配到一个地址.</p>
+<ol>
+<li>获取一块地址</li>
+</ol>
+<p>从 isp 处获取一块主机地址</p>
+<ol>
+<li>获取主机地址：<strong>动态主机配置协议（dhcp）</strong></li>
+</ol>
+<p>dhcp 可以被配置成让某给定主机每次与网络连接时得到相同的 ip 地址，或者被分配一个临时的 ip 地址.</p>
+<p>dhcp 还可以让主机得知其他信息，例如子网掩码，第一跳路由器地址（默认网关）</p>
+<p>dhcp 具有将主机连接到一个网络的网络相关方面的自动化能力，故又常被称为即插即用协议或者零配置协议</p>
+<p>dhcp 是一个<strong>客户-服务器协议</strong>，通常情况下每个子网都有一台 dhcp 服务器或者一个 dhcp 中继代理（比如路由器）来告知该网络的 dhcp 服务器地址</p>
+<p><img alt="QQ_1730339854764.png" src="../QQ_1730339854764.png" /></p>
+<p><img alt="QQ_1730340313944.png" src="../QQ_1730340313944.png" /></p>
+<p>对于一台新到达的主机，dhcp 是一个四步骤的过程：</p>
+<ol>
+<li>dhcp 服务器发现</li>
+</ol>
+<p>发送一个 <strong>dhcp 发送报文</strong>，客户在 udp 分组中向端口 67 发送该报文</p>
+<p>使用广播目的地址 255.255.255.255 和“本主机”源 ip 地址 0.0.0.0，dhcp 客户将该 ip 数据报传递给链路层，链路层将该帧广播到所有与该子网连接的节点</p>
+<ol>
+<li>dhcp 服务器提供</li>
+</ol>
+<p>dhcp 服务器收到一个 dhcp 发现报文时，用 <strong>dhcp 提供报文</strong> 向客户做出响应。仍然使用 ip 广播地址。同时，因为可能在子网中有多个 dhcp 服务器，需要选择最优位置.</p>
+<p>每台服务器提供的报文包含收到的发现报文的事务 id、向客户推荐的 ip 地址、网络掩码以及 ip 地址租用期.</p>
+<ol>
+<li>dhcp 请求</li>
+</ol>
+<p>客户从一个或多个服务器提供中选择一个，并向选中的服务器提供用 <strong>dhcp 请求报文</strong> 进行响应，回显配置的参数.</p>
+<ol>
+<li>dhcp ack</li>
+</ol>
+<p>服务器用 dhcp ack 报文对 dhcp 请求报文进行响应，证实所要求的参数</p>
+<p>dhcp 还提供了一种机制以允许客户更新它对一个 ip 地址的租用</p>
+<p>在 dhcp ack 报文中还存储了：1. 对于用户来说下一跳路由器地址 2. DNS 服务器的名称和地址 3. 子网掩码</p>
+<h3 id="network-address-translation">网络地址转换 （network address translation）</h3>
+<p>地址空间 10.0.0.0/8 是保留的三部分 ip 地址空间之一（另外两个是 172.16/12, 192.168/16），这些地址由于家庭网络等专用网络或具有专用地址的地域（指地址仅对该网络中的设备有意义的网络）</p>
+<p>nat 路由器对外界的行为如同一个具有单一 ip 地址的单一设备。路由器从 isp 的 dhcp 获取自己的地址，并且在路由器上运行一个 dhcp 服务器，为家庭网络提供地址</p>
+<p>nat 路由器上的 nat 转换表 告知路由器应该将某个分组转发给哪个内部主机</p>
+<p><img alt="image.png" src="../image.png" /></p>
+<h3 id="ipv6">ipv6</h3>
+<p><img alt="QQ_1730358612231.png" src="../QQ_1730358612231.png" /></p>
+<p>首部大小为 40 字节</p>
+<p>版本</p>
+<p>流量类型：与 ipv4 的 tos 字段含义相似</p>
+<p>流标签：用于标识一条数据报的流，能够对一条流中的某些数据报给出优先权，或者他能够用来对来自某些应用的数据报给出更高的优先权</p>
+<p>有效载荷长度</p>
+<p>下一个首部：标识数据报的内容需要交付给那一个协议（tcp or udp 等）与 ipv4 首部中协议字段相同的值</p>
+<p>跳限制：每台路由器对该字段内容减 1，如果收到是为 0，则丢弃</p>
+<p>源地址和目标地址</p>
+<p>数据</p>
+<h3 id="ipv4-v6">从 ipv4 到 v6 的迁移</h3>
+<p>采用的是一种建隧道的方法：两个 ipv6 节点用 ipv6 数据包进行交互，他们是经由中间 ipv4 路由器互联的。将两台 ipv6 路由器之间的 ipv4 路由器称为隧道（tunnel）</p>
+<p>将 ipv6 数据报放到一个 ipv4 数据报的数字（载荷）字段中再进行传输</p>
+<h2 id="sdn">泛化转发和 sdn</h2>
+<p>考虑更有意义的通用“匹配加操作”范式：其中能够对协议栈的多个首部字段进行“匹配”，这些首部字段是与不同层次的不同协议相关联的.</p>
+<p>（跳过了没讲）</p>
+<h2 id="middle-box">中间盒（middle box）</h2>
+<blockquote>
+<p>在源主机和目的主机之间的数据路径上，执行除了 ip 路由器的正常标准功能之外的其他功能的任何中间的盒子</p>
+</blockquote>
+<p>中间盒提供的三种服务：</p>
+<ol>
+<li>nat 转换. nat 盒实现了专用网络寻址、重写数据报首部 ip 地址和端口号</li>
+<li>安全服务. 防火墙基于首部字段值或重定向分组来阻塞流量，从而进行附加处理.</li>
+<li>性能增强. 想能够提供所需服务的服务器集合之一，执行诸如压缩、内容缓存和负载均衡等服务的服务请求</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.top", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
