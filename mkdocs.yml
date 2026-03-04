@@ -5,7 +5,9 @@ repo_url: https://github.com/water-mi/kym-doc
 edit_uri: edit/main/docs/
 
 nav:
-  - 主页: index.md
+  - 主页: 
+    - 主页: index.md
+    - pdf 测试: pdf.md
   - 计算机科学与技术:
     - 编译原理: 
       - 课程介绍: cs/compiler/about.md
@@ -30,6 +32,8 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.prune
+    - navigation.path
+    - navigation.indexes 
     - navigation.top
     - search.suggest
     - search.highlight
