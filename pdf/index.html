@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://water-mi.github.io/kym-doc/cs/compiler/chapter4/">
+        <link rel="canonical" href="https://water-mi.github.io/kym-doc/pdf/">
       
       
-        <link rel="prev" href="../chapter3/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../chapter9/">
+        <link rel="next" href="../cs/compiler/about/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
-        <title>4. 语法分析 - 匡院笔记分享</title>
+        <title>pdf 测试 - 匡院笔记分享</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +53,7 @@
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#4" class="md-skip">
+        <a href="#pdf" class="md-skip">
           跳转至
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="匡院笔记分享" class="md-header__button md-logo" aria-label="匡院笔记分享" data-md-component="logo">
+    <a href=".." title="匡院笔记分享" class="md-header__button md-logo" aria-label="匡院笔记分享" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4. 语法分析
+              pdf 测试
             
           </span>
         </div>
@@ -219,11 +219,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href=".." class="md-tabs__link">
           
   
   
@@ -241,8 +243,6 @@
   
   
   
-    
-  
   
     
     
@@ -250,13 +250,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../about/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../cs/compiler/about/" class="md-tabs__link">
           
   
   
@@ -301,7 +299,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="匡院笔记分享" class="md-nav__button md-logo" aria-label="匡院笔记分享" data-md-component="logo">
+    <a href=".." title="匡院笔记分享" class="md-nav__button md-logo" aria-label="匡院笔记分享" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -328,6 +326,8 @@
       
   
   
+    
+  
   
   
     
@@ -335,65 +335,6 @@
       
         
           
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../.." class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    主页
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
         
       
         
@@ -414,17 +355,18 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
     
   
-    计算机科学与技术
+    主页
   
 
     
@@ -432,168 +374,26 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
   
-    计算机科学与技术
+    主页
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    编译原理
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    编译原理
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    课程介绍
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../chapter1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    1. 导引
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../chapter3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    3. 词法分析
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -612,24 +412,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    4. 语法分析
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -637,7 +419,7 @@
   <span class="md-ellipsis">
     
   
-    4. 语法分析
+    pdf 测试
   
 
     
@@ -647,103 +429,6 @@
 
       </a>
       
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        语法分析器
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        自顶向下的语法分析
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        预测分析法
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="预测分析法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ll1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LL(1) 文法与预测分析表构造算法
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../chapter9/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    9. 机器无关的优化
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -755,28 +440,15 @@
     </li>
   
 
-              
-            
-              
-                
+    
+      
+      
   
   
   
   
     
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -800,14 +472,18 @@
   
   
   
-    <a href="../../computer_network/about/" class="md-nav__link">
+    
+  
+  
+  
+    <a href="../cs/compiler/about/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
     
   
-    计算机网络
+    计算机科学与技术
   
 
     
@@ -821,14 +497,8 @@
     </a>
   
 
-      
-    </li>
   
 
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -854,64 +524,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        语法分析器
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        自顶向下的语法分析
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        预测分析法
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="预测分析法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ll1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LL(1) 文法与预测分析表构造算法
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -926,57 +538,6 @@
 
 
 
-  <nav class="md-path" aria-label="导航栏" >
-    <ol class="md-path__list">
-      
-      
-        
-  
-  
-    
-    
-      
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../about/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    计算机科学与技术
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../about/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    编译原理
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -988,37 +549,27 @@
     
       
     
-    <a href="https://github.com/water-mi/kym-doc/raw/main/docs/cs/compiler/chapter4.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/water-mi/kym-doc/raw/main/docs/pdf.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="4">4. 语法分析</h1>
-<h2 id="_1">语法分析器</h2>
-<p><img alt="image.png" src="https://box.nju.edu.cn/seafhttp/f/fd65fe35dbe145cb81b9/?op=view" /></p>
-<p>这个例子中是最左推导，因为 alpha 中没有非终结符（也可以理解为将最左边的非终结符进行了推导）E+T 中 E 是 A，alpha 是空串，beta 是 +T</p>
-<p>leftmost/rightmost</p>
-<p><img alt="image.png" src="https://box.nju.edu.cn/seafhttp/f/87763024627640a0a8df/?op=view" /></p>
-<ul>
-<li>消除二义性的惯用技术：分层</li>
-<li>改造文法，对于引发二义性的多种推导处于文法同一层的情况，将真正想要的推导提取出来，放到更深的层次</li>
-<li>最左推导中，更深层的非终结符总是会被优先替换</li>
-<li>确保只有一种最左推导，消除二义性</li>
-</ul>
-<hr />
-<h2 id="_2">自顶向下的语法分析</h2>
-<p>递归向下法（有局限）</p>
-<p>直接左递归和间接左递归</p>
-<hr />
-<h2 id="_3">预测分析法</h2>
-<p><img alt="image.png" src="https://box.nju.edu.cn/seafhttp/f/568b9fad3ae242b781c7/?op=view" /></p>
-<p>FIRST 和 FOLLOW 的计算方式（p49/pdf42 没那么简单）</p>
-<h3 id="ll1">LL(1) 文法与预测分析表构造算法</h3>
-<p>要注意构造方式</p>
-<p>当表格出现两个推导式时，发生冲突（二义性），课件 p65 有例子</p>
-<p><img alt="image.png" src="https://box.nju.edu.cn/seafhttp/f/ebc87f4d386e4a058149/?op=view" /></p>
+<h1 id="pdf">这是一个 pdf 内嵌测试页面</h1>
+<p>您可以参考本页面的源代码来了解如何在 Mkdocs 中内嵌 pdf 文件。请注意，内嵌 pdf 文件可能会受到浏览器的安全策略限制，因此在某些情况下可能无法正常显示。如果您遇到问题，请确保您的浏览器允许内嵌内容，并且 pdf 文件的路径正确。</p>
+<p>此外，pdf 文件应尽可能该存储在外部网盘中，并通过外链的方式进行引用，以避免仓库过大导致的问题。</p>
+<div style="width: 100%; height: calc(100vh - 120px); border: none;">
+  <iframe 
+    src="../test.pdf#toolbar=1&navpanes=0&scrollbar=1"
+    width="100%" 
+    height="100%" 
+    frameborder="0"
+    allowfullscreen="true"
+  >
+    你的浏览器不支持内嵌 PDF，请<a href="../test.pdf" target="_blank">点击下载</a>
+  </iframe>
+</div>
 
 
 
@@ -1041,7 +592,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年3月4日 14:28:11 UTC">2026年3月4日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年3月4日 16:01:13 UTC">2026年3月4日</span>
   </span>
 
     
@@ -1051,7 +602,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年3月3日 14:43:32 UTC">2026年3月3日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年3月4日 16:01:13 UTC">2026年3月4日</span>
   </span>
 
     
@@ -1121,12 +672,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.action.view"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.action.view"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../javascripts/katex.js"></script>
+        <script src="../javascripts/katex.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       
