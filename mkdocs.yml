@@ -74,12 +74,16 @@ nav:
       - cs/compiler/chapter3.md
       - cs/compiler/chapter4.md
       - cs/compiler/chapter9.md
-    - 计算机网络: 
-      - 课程介绍: cs/computer_network/about.md
-      - cs/computer_network/chapter1.md
-      - cs/computer_network/chapter2.md
-      - cs/computer_network/chapter3.md
-      - cs/computer_network/chapter4.md
-      - cs/computer_network/chapter5.md
-      - cs/computer_network/chapter6.md
-      - cs/computer_network/chapter7.md
+    - 计算机网络（2024 秋）: 
+      - 课程介绍: cs/computer_network(2024Fall)/about.md
+      - cs/computer_network(2024Fall)/chapter1.md
+      - cs/computer_network(2024Fall)/chapter2.md
+      - cs/computer_network(2024Fall)/chapter3.md
+      - cs/computer_network(2024Fall)/chapter4.md
+      - cs/computer_network(2024Fall)/chapter5.md
+      - cs/computer_network(2024Fall)/chapter6.md
+      - cs/computer_network(2024Fall)/chapter7.md
+    - 计算机网络（2025 秋）: 
+      - cs/computer_network(2025Fall)/about.md
+    - 密码学原理:
+      - cs/crypto/about.md
