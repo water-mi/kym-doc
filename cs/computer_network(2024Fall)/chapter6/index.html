@@ -1,0 +1,1938 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://water-mi.github.io/kym-doc/cs/computer_network%282024Fall%29/chapter6/">
+      
+      
+        <link rel="prev" href="../chapter5/">
+      
+      
+        <link rel="next" href="../chapter7/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>第六章-链路层和局域网 - 匡院笔记分享</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=LXGW+WenKai+Screen+GB+Screen:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"LXGW WenKai Screen GB Screen";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../css/customize.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="匡院笔记分享" class="md-header__button md-logo" aria-label="匡院笔记分享" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            匡院笔记分享
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第六章-链路层和局域网
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/water-mi/kym-doc" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KYM-DOC
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学与技术
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="匡院笔记分享" class="md-nav__button md-logo" aria-label="匡院笔记分享" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    匡院笔记分享
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/water-mi/kym-doc" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KYM-DOC
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学与技术
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学与技术
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../compiler/about/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编译原理
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机网络（2024 秋）
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机网络（2024 秋）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一章-导论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第二章-应用层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第三章-传输层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第四章-网络层：数据平面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第五章-网络层：控制平面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第六章-链路层和局域网
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第六章-链路层和局域网
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路层概述
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="链路层概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路层提供的服务
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        差错检测和纠正技术
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="差错检测和纠正技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        奇偶校验
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checksum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检验和（checksum）方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cyclic-redundancy-check-crc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环冗余检测（cyclic redundancy check, CRC）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多路访问链路和协议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多路访问链路和协议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#channel-partitioning-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        信道划分协议（channel partitioning protocol）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random-access-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随机接入协议（random access protocol）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aloha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时隙 ALOHA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aloha_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALOHA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csmacsmacd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        载波侦听多路访问（CSMA，CSMA/CD）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taking-turns-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        轮流协议（taking-turns protocol）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        交换局域网
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="交换局域网">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路层寻址和 arp（地址解析协议）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        以太网
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路层交换机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        虚拟局域网（VLAN）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路虚拟化：网络作为链路层
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="链路虚拟化：网络作为链路层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiprotocol-label-switching-mpls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多协议标签交换（Multiprotocol Label Switching, MPLS）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第七章-无线网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../computer_network%282025Fall%29/about/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机网络（2025 秋）
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../crypto/about/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    密码学原理
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路层概述
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="链路层概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路层提供的服务
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        差错检测和纠正技术
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="差错检测和纠正技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        奇偶校验
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checksum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检验和（checksum）方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cyclic-redundancy-check-crc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环冗余检测（cyclic redundancy check, CRC）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多路访问链路和协议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多路访问链路和协议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#channel-partitioning-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        信道划分协议（channel partitioning protocol）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random-access-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随机接入协议（random access protocol）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aloha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时隙 ALOHA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aloha_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALOHA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csmacsmacd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        载波侦听多路访问（CSMA，CSMA/CD）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taking-turns-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        轮流协议（taking-turns protocol）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        交换局域网
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="交换局域网">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路层寻址和 arp（地址解析协议）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        以太网
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路层交换机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        虚拟局域网（VLAN）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路虚拟化：网络作为链路层
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="链路虚拟化：网络作为链路层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiprotocol-label-switching-mpls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多协议标签交换（Multiprotocol Label Switching, MPLS）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    计算机科学与技术
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../about/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    计算机网络（2024 秋）
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+    
+      
+    
+    <a href="https://github.com/water-mi/kym-doc/raw/main/docs/cs/computer_network(2024Fall)/chapter6.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="-">第六章-链路层和局域网</h1>
+<h2 id="_1">链路层概述</h2>
+<p>链路层：Link Layer</p>
+<p>局域网：Local Area Network（LAN）</p>
+<p>将运行链路层协议的任何设备均称为节点（node）</p>
+<p>把沿着通信路径链接相邻节点的通信信道称为<strong>链路</strong>（link）</p>
+<p>传输节点将<strong>数据报</strong>（datagram）封装在链路层<strong>帧</strong>（frame）中</p>
+<p>举例：</p>
+<blockquote>
+<p>旅行社安排游客从 A 城坐飞机到 B 城，转高铁到 C 城</p>
+<p>游客：数据报</p>
+<p>旅行社：路由选择协议</p>
+<p>A,B,C 三城：节点</p>
+<p>每个运输区段：链路</p>
+<p>运输方式：链路层协议（相邻两个节点之间）</p>
+</blockquote>
+<h3 id="_2">链路层提供的服务</h3>
+<ul>
+<li>成帧：将数据报封装成帧，帧的结构由链路层协议规定。有多种帧格式</li>
+<li>链路接入：介质访问控制（medium access control, MAC）协议规定了帧在链路上传输的规则 。MAC 协议用于协调多个节点的帧传输。</li>
+<li>可靠交付：链路层的可靠交付服务通常是通过确认和重传取得的</li>
+<li>差错检测和纠正：接收方不仅能检测帧中出现的比特差错，而且能够准确地确定帧中的差错出现的位置（并纠正这些差错）</li>
+</ul>
+<p>链路层在称为网络适配器的芯片上实现的。</p>
+<h2 id="_3">差错检测和纠正技术</h2>
+<p>在发送节点，为了保护比特免受差错，使用差错检测和纠正比特（EDC）来增强数据 D，保护 header 和 payload</p>
+<p>接收方的挑战是在只收到 D’&amp; EDC’ 的情况下，确定 D’ 是否和初始的 D 相同。（几乎总是能检测出已经出现的比特差错，但也还是可能有未检出比特差错，undetected bit error）</p>
+<p><img alt="ch6-p1" src="../pics/chapter6/ch6-p1.png" /></p>
+<h3 id="_4">奇偶校验</h3>
+<p>单比特奇偶校验（补上校验位后成奇/偶）</p>
+<p>二维奇偶校验方案</p>
+<p><img alt="ch6-p2" src="../pics/chapter6/ch6-p2.png" /></p>
+<p>在单个比特出错的情况下可以直接定位发生差错的比特并纠正。二维奇偶校验也能检测（但不能纠正）两个比特差错的组合</p>
+<p>接收方检测和纠正差错的能力被称为<strong>前向纠错</strong>（forward error correction, FEC）</p>
+<h3 id="checksum">检验和（checksum）方法</h3>
+<p>将数据的字节作为 16 比特的整数对待并求和。这个和的反码形成了携带在报文段首部的因特网检验和。</p>
+<p>一般只在运输层使用检验和方法，因为这种方法更快速，适合用软件实现。而现实中链路层采用硬件实现了名为 CRC 的方法</p>
+<h3 id="cyclic-redundancy-check-crc">循环冗余检测（cyclic redundancy check, CRC）</h3>
+<p>CRC 编码也称为多项式编码，该编码将要发送的比特串看作系数为0和1的一个多项式</p>
+<p>所有 CRC 编码采用模 2 算术来做（在加法中不进位，减法中不借位，等价于按位异或操作）</p>
+<p>假设发送方要发送 d 比特的数据，首先发送方与接收方协商一个 r+1 比特的模式（我习惯叫成模式串），称为<strong>生成多项式（generator）</strong>，记为 G，要求 G 的最高位为 1</p>
+<p><img alt="ch6-p3" src="../pics/chapter6/ch6-p3.png" /></p>
+<p>需要计算出 <span class="arithmatex">\(R=\text{remainder}\frac{D\cdot2^r}{G}\)</span> 使得 G 整除 <span class="arithmatex">\(D\cdot2^r\text{ xor } R\)</span></p>
+<p>记住这里的 remainder 是模 2 算术下的</p>
+<p>如果采用的是国际标准的比特生成多项式 G，则能检测小于 r+1 个比特的突发差错，也能够检测任何奇数个比特差错.</p>
+<h2 id="_5">多路访问链路和协议</h2>
+<p>存在两种类型的网络链路：点对点链路和广播链路</p>
+<p>点对点链路（point-to-point link）由链路一段的单个发送方和链路另一端的单个接收方组成。常见的链路层协议有点对点协议（point-to-point protocol, PPP）和高级数据链路控制（high-level data link control, HDLC）</p>
+<p>广播链路（broadcast link）能够让多个发送和接收节点都连接到相同的、单一的、共享的广播信道上。以太网和无线局域网就是广播链路层技术的例子。（既能发送也能接收）</p>
+<p><strong>多路访问问题：</strong>如何协调多个发送和接收节点对一个共享广播信道的访问，多路访问协议（multiple access protocol）规范节点在共享的广播信道上的传输行为。</p>
+<p>理想情况下，对于速率为 R bps 的广播信道，多路访问协议应该具有以下所希望的特性：</p>
+<ol>
+<li>当仅有一个节点发送数据时，该节点具有 R bps 的吞吐量；</li>
+<li>当有 M 个节点发送数据时，每个节点吞吐量为 R/M bps。 这不必要求 M 个节点中的每一个节点总是有 R/M 的瞬间速率，而是每个节点在一些适当定义的时间间隔内应该有 R/M 的平均传输速率</li>
+<li>协议是去中心化的；这就是说不会因某主节点故障而使整个系统崩溃。</li>
+<li>协议是简单的，使实现不昂贵。</li>
+</ol>
+<p>总的来说，可以将多路访问协议划分成以下 3 种类型之一</p>
+<h3 id="channel-partitioning-protocol">信道划分协议（channel partitioning protocol）</h3>
+<p>通过时分多路复用（tdm，将一个时间帧划分成 n 个时隙）或者频分多路复用（fdm）将信道进行划分：</p>
+<p>优点：消除了碰撞而且非常公平，每个节点都得到了 r/n bps 的传输速率</p>
+<p>缺点：传输速率被限制，即便在只有自己要传送数据的时候</p>
+<p><img alt="ch6-p4" src="../pics/chapter6/ch6-p4.png" /></p>
+<h3 id="random-access-protocol">随机接入协议（random access protocol）</h3>
+<p>在随机接入协议中，一个传输节点总是以信道的全部速率（R bps）进行发送。当有碰撞时，涉及碰撞的每个节点反复地重发它的帧，到该帧无碰撞地通过位置。但是当一个节点设计一次碰撞时，它不必立刻重发该帧。<strong>相反，它在重发该帧之前等待一个随机时延（独立选择）。</strong></p>
+<p>常用的随机接入协议包括 ALOHA 协议和载波侦听多路访问（CSMA）协议</p>
+<h3 id="aloha">时隙 ALOHA</h3>
+<p><img alt="ch6-p5" src="../pics/chapter6/ch6-p5.png" /></p>
+<p>刚好有一个节点传输的时隙称为一个成功时隙（successful slot）。时隙多路访问协议的效率定义为：当有大量的活跃节点切每个节点总有大量的帧要发送时，长期运行中成功时隙的份额。</p>
+<p>假设每个节点试图在每个时隙以概率 p 传输一帧，假设有 N 个节点，则一个给定时隙时成功时隙的概率为 <span class="arithmatex">\(p(1-p)^{N-1}\)</span>，因为有 N 个节点，任意一个节点成功传送的概率为 <span class="arithmatex">\(Np(1-p)^{N-1}\)</span> 。经过计算，发现这个协议的最大效率为 <span class="arithmatex">\(1/e=0.37\)</span></p>
+<p><img alt="ch6-p6" src="../pics/chapter6/ch6-p6.png" /></p>
+<h3 id="aloha_1">ALOHA</h3>
+<p>时隙 aloha 要求所有节点同步他们的传输，以在每个时隙开始时开始传输。在纯 aloha 中，当一帧首次到达，节点立刻将该帧完整地传输进广播信道。</p>
+<p>如果一个传输的帧与一个或多个传输经历了碰撞，这个节点将立刻以概率 p 重传该帧。否则，该节点等待一个帧传输时间，在此等待之后，以概率 p 传输该帧，或者继续等待.</p>
+<p>则对于一个节点，成功传输一次要求在前一段时间间隔和自己传输时都不能有其他节点开始传输，这个概率为 <span class="arithmatex">\((1-p)^{2(N-1)}\)</span>，则成功传输一次的总概率为 <span class="arithmatex">\(p(1-p)^{2(N-1)}\)</span>，最大效率仅为 <span class="arithmatex">\(1/(2e)\)</span></p>
+<p><img alt="ch6-p7" src="../pics/chapter6/ch6-p7.png" /></p>
+<h3 id="csmacsmacd">载波侦听多路访问（CSMA，CSMA/CD）</h3>
+<p>载波侦听：一个节点在传输前先听信道。如果来自另一个节点的帧正向信道上发送，节点则等待直到检测到一小段时间没有传输，然后开始传输。</p>
+<p>碰撞检测：当一个传输节点在传输时一直在侦听此信道。如果检测到了另一个节点正在传输干扰帧，它就停止传输（让别人传），在重复“侦听-当空闲时传输”循环之前等待一段随机时间。</p>
+<p>由于传播时延的存在，即使存在载波侦听，还是会存在碰撞，故需要碰撞检测</p>
+<p><img alt="ch6-p8" src="../pics/chapter6/ch6-p8.png" /></p>
+<p>右图：D往右传在先，但是检测到了 A，所以先停；A 往左传在先，但是检测到了 D，也先停</p>
+<ol>
+<li>适配器从网络层一条获得数据报，准备链路层帧，并将其放入帧适配器缓存中。</li>
+<li>如果适配器侦听到信道空闲（即无信号能量从信道进入适配器），它开始传输帧。在另一方面，如果适配器侦听到信道正在忙，它将等待，直到侦听到没有信号能量时才开始传输帧。</li>
+<li>在传输过程中，适配器监视来自其他使用该广播信道的适配器的信号能量的存在。</li>
+<li>如果适配器传输整个帧而未检测到来自其他适配器的信号能量，该适配器就完成了该帧。在另一方面，如果适配器在传输时检测到来自其他适配器的信号能量，它中止传输</li>
+<li>中止传输后，适配器等待一个随机时间量，然后返回步骤 2</li>
+</ol>
+<p>当碰撞节点数量较少时，时间间隔较短；当碰撞节点数量较大时，时间间隔较长。</p>
+<p><strong>二进制指数后退算法：</strong>当传输一个给定帧时，若经历了一连串的 n 次碰撞，节点随机地从 <span class="arithmatex">\(\{0,1,2,\cdots,2^{n}-1\}\)</span> 中选择一个 K 值，一个帧碰撞越多，K 选择的间隔越大。对于以太网，一个节点等待的实际时间量是 K·512 比特时间（发送 512 比特进入以太网所需时间量的 K 倍）</p>
+<hr />
+<p>CSMA/CD 效率：当有大量的活跃节点，且每个节点有大量的帧要发送时，帧在信道中无碰撞地传输的那部分时间在长期运行时间中所占的份额。（与某个具体节点无关）</p>
+<p>令 <span class="arithmatex">\(d_{prop}\)</span> 表示信号能量在任意两个适配器之间传播所需的最大时间，令 <span class="arithmatex">\(d_{trans}\)</span> 表示传输一个最大长度的以太网帧的时间：</p>
+<div class="arithmatex">\[
+\text{效率}=\frac{1}{1+5d_{\text{prop}}/d_{\text{trans}}}
+\]</div>
+<p>从这个公式我们看到，当 <span class="arithmatex">\(d_{\text{prop}}\)</span> 接近 0 时，效率接近1 。这和我们的直觉相符，如果传播时延是 0, 碰撞的节点将立即中止而不会浪费信道。同时，当 <span class="arithmatex">\(d_{\text{trans}}\)</span> 变得很大时，效率也接近于 1 。这也和直觉相符，因为当一个帧取得了信道时，它将占有信道很长时间；因此信道在大多数时间都会有效地工作。</p>
+<hr />
+<p>多路访问协议的两个理想特性是：</p>
+<ol>
+<li>当仅有一个节点发送数据时，该节点具有 R bps 的吞吐量；</li>
+<li>当有 M 个节点发送数据时，每个节点吞吐量为 R/M bps。 这不必要求 M 个节点中的每一个节点总是有 R/M 的瞬间速率，而是每个节点在一些适当定义的时间间隔内应该有 R/M 的平均传输速率</li>
+</ol>
+<p>ALOHA 和 CSMA 协议具备第一个特性，但不具备第二个特性。</p>
+<h3 id="taking-turns-protocol">轮流协议（taking-turns protocol）</h3>
+<p>讨论两种比较重要的协议。</p>
+<p>第一种是轮询协议，轮询协议要求这些节点之一要被指定为主节点。主节点以循环的方式轮询(poll) 每个节点。特别是，主节点首先向节点 1 发送一个报文，告诉它（节点 1） 能够传输的帧的最多数量。在节点 1 传输了某些帧后，主节点告诉节点 2 它（节点2）能够传输的帧的最多数量。（主节点能够通过观察在信道上是否缺乏信号，来决定一个节点何时完成了帧的发送。）上述过程以这种方式继续进行，主节点以循环的方式轮询了每个节点。</p>
+<p>第一个缺点是该协议引入了轮询时延，即通知一个节点”它可以传输”所需的时间。例如，如果只有一个节点是活跃的，那么这个节点将以小于 R bps 的速率传输，因为每次活跃节点发送了它最多数量的帧时，主节点必须依次轮询每一个非活跃的节点。第二个缺点可能更为严重，就是如果主节点有故障，整个信道都变得不可操作。蓝牙协议就是轮询协议的例子。</p>
+<p>第二种轮流协议是令牌传递协议 (token-passing protocol) 。在这种协议中没有主节点。</p>
+<p>一个称为令牌 (token) 的小的特殊帧在节点之间以某种固定的次序进行交换。</p>
+<p>缺点：一个节点的故障可能会使整个信道崩溃。或者如果一个节点偶然忘记了释放令牌，则必须调用某些恢复步骤使令牌返回到循环中来</p>
+<h2 id="_6">交换局域网</h2>
+<p>交换机运行在链路层，交换链路层帧，不识别网络层地址，而是链路层地址.</p>
+<h3 id="arp">链路层寻址和 arp（地址解析协议）</h3>
+<p>区分网络层地址和链路层地址</p>
+<ol>
+<li>MAC 地址（就是链路层地址）</li>
+</ol>
+<p>事实上，并不是某个主机或路由器有链路层地址，而是它们的适配器（网络接口）有链路层地址.</p>
+<p>具有多个网络接口的主机/路由器具有与之相关联的多个链路层地址.</p>
+<p>MAC 地址长度 6 字节，共有 <span class="arithmatex">\(2^{48}\)</span> 个可能的地址，常用十六进制表示，每个字节表示为一对十六进制数. 没有两块适配器具有相同的地址.</p>
+<p><strong>发送</strong>：发送适配器将目的适配器的 mac 地址插入到将要发送的帧中，并将该帧发送到局域网上.</p>
+<p><strong>接收</strong>：适配器收到一个帧时，将检查该帧中的目的 mac 地址是否与它自己的 mac 地址匹配。如果匹配，提取出封装的数据报，沿协议栈向上传递。如果不匹配，该适配器会丢弃这个帧.</p>
+<p><strong>广播</strong>：广播地址是 48 个连续的 1 组成的字符串，即 FF-FF-FF-FF-FF-FF</p>
+<ol>
+<li>地址解析协议（在网络层地址和链路层地址之间进行转换）</li>
+</ol>
+<p>每台主机或者路由器在其内存中维护一个 <strong>ARP 表（ arp table ）</strong>包含 ip 地址到 mac 地址的映射关系以及寿命值（time-to-live, ttl）</p>
+<ul>
+<li>获取其他主机的 mac 地址。首先，发送方构造一个被称为 arp 分组（arp packet） 的特殊分组，包括发送和接收 ip 地址以及 mac 地址。arp 的查询和相应分组都具有相同的格式。发送主机向它的适配器传递一个 arp 查询分组，且指示适配器应该用 mac 广播地址来发送。与之匹配的一个主机给查询主机发送回一个相应 arp 分组</li>
+<li>
+<p>查询 arp 报文是在广播帧中发送的，而响应 arp 报文在一个标准帧中发送.</p>
+</li>
+<li>
+<p>发送数据报到子网以外</p>
+</li>
+</ul>
+<p>路由器的每个接口都有一个 arp 模块和适配器</p>
+<p><img alt="ch6-p9" src="../pics/chapter6/ch6-p9.png" /></p>
+<p>主机 111.111.111.111 要向 222.222.222.222 发送一个 ip 数据报，需要指定一个适当的 mac 地址;</p>
+<p>直接指定 222.222. 的 mac 地址是不现实的，因为子网的适配器不会维护这一转换（停留在链路层），故数据报必须首先发送给路由器接口 111.111.111.110（第一跳），这样才能从链路层转换到网络层，进行下一步的路由</p>
+<h3 id="_7">以太网</h3>
+<p>交换机运行在第二层（链路层），而路由器运行在第三层（网络层）</p>
+<p>以太网帧结构</p>
+<p><img alt="ch6-p11" src="../pics/chapter6/ch6-p10.png" /></p>
+<ul>
+<li>前同步码（8字节）。个人理解是一种魔数。前七个字节相同（10101010），用于“唤醒”接收适配器，将它们的时钟和发送方的时钟相同步。第八个字节（10101011）警告适配器，”重要的内容要到了“</li>
+<li>目的地址（6字节），目的适配器的 mac 地址，如果不是本适配器的地址或者广播地址就丢弃</li>
+<li>源地址（6字节）</li>
+<li>类型字段（2字节），标记数据报的网络层协议.</li>
+<li>数据字段（46～1500字节），超过字节数必须要分片，小于字节数要填充</li>
+<li>
+<p>crc（4字节）循环冗余检测字段，指示是否出现差错</p>
+</li>
+<li>
+<p>无连接服务，不需要握手.</p>
+</li>
+<li>不可靠服务，收到既不发送确认帧也发送否定确认帧，没有通过 crc 校验只会直接丢弃</li>
+</ul>
+<h3 id="_8">链路层交换机</h3>
+<p>交换机的任务是接收入链路层帧并将它们转发到出链路。交换机自身对子网中的主机和路由器是<strong>透明</strong>的。</p>
+<ol>
+<li>
+<p>转发和过滤</p>
+<p>过滤（filtering）是决定一个帧应该转发到某个端口还是应该丢弃</p>
+<p>转发（forwarding）是决定一个帧应该被导向哪个端口</p>
+<p>上述功能借助于交换机表（switch table）完成。交换机表包括局域网上某些主机和路由器的表项，但不必是全部的表项。</p>
+</li>
+<li>
+<p>一个 mac 地址 2. 通向该 mac 地址的交换机接口（对应一个局域网网段） 3. 表项放置在表中的时间</p>
+<p><img alt="ch6-p11" src="../pics/chapter6/ch6-p11.png" /></p>
+<ul>
+<li>表中没有对应 DD-DD-DD-DD-DD-DD 的表项。 在这种情况下， 交换机向除接口 x 外的所有接口前面的输出缓存转发该帧的副本。 相当于广播</li>
+<li>表中有 DD-DD-DD-DD-DD-DD 与接口 x 关联的表项。在这种情况下，该帧从包括适配器 DD-DD-DD-DD-DD-DD 的局域网网段到来。无须将该帧转发到任何其他接口， 交换机通过丢弃该帧执行过滤功能即可。</li>
+<li>表中有 DD-DD-DD-DD-DD-DD 与接口 y (≠x) 关联的表项。在这种情况下，该帧需要被转发到与接口 y 相连的局域网网段。交换机通过将该帧放到接口 y 前面的输出缓存完成转发功能。</li>
+</ul>
+</li>
+<li>
+<p>自学习</p>
+<p>交换机的表是自动、动态和自治地建立的</p>
+<ol>
+<li>交换机表初始为空。</li>
+<li>对于在每个接口接收到的每个入帧， 该交换机在其表中存储：在该帧源地址字段中的 MAC 地址； 该帧到达的接口； 当前时间。 交换机以这种方式在它的表中记录了发送节点所在的局域网网段。 如果在局域网上的每个主机最终都发送了一个帧， 则每个主机最终将在这张表中留有记录。</li>
+<li>如果在一段时间[称为老化期(aging time)] 后， 交换机没有接收到以该地址作为源地址的帧， 就在表中删除这个地址。 以这种方式， 如果一台PC被另一台PC（具有不同的适配器）代替， 原来PC的MAC地址将最终从该交换机表中被清除掉。</li>
+</ol>
+<p>交换机是即插即用设备，交换机也是双工的， 这意味着任何交换机接口能够同时发送和接收。</p>
+</li>
+<li>
+<p>链路层交换机的性质</p>
+</li>
+<li>
+<p>消除碰撞</p>
+<p>交换机缓存帧并且绝不会在网段上同时传输多于一个帧。 就像使用路由器 一样， 交换机的最大聚合带宽是该交换机所有接口速率之和。</p>
+</li>
+<li>
+<p>异质的链路</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>因此局域网中的不同链路能够以不同的速率 运行并且能够在不同的媒介上运行。
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>管理</p>
+</li>
+<li>
+<p>交换机和路由器比较</p>
+<p><img alt="ch6-p12" src="../pics/chapter6/ch6-p12.png" /></p>
+</li>
+</ol>
+<h3 id="vlan">虚拟局域网（VLAN）</h3>
+<p>支持VLAN 的交换机允许经一个单一的物理局域网基础设施定义多个虚拟局域网。在一个VLAN 内的主机彼此通信，仿佛它们（并且没有其他主机）与交换机连接。在一个基于端口的VLAN 中，交换机的端口（接口）由网络管理员划分为组。每个组构成一个VLAN, 在每个VLAN 中的端口形成一个广播域（即来自一个端口的广播流最仅能到达该组中的其他端口）。</p>
+<p>VLAN 间的互联：</p>
+<p><img alt="ch6-p13" src="../pics/chapter6/ch6-p13.png" /></p>
+<ol>
+<li>通过路由器（就像是分离的交换机）</li>
+<li>
+<p>VLAN 干线连接（VLAN trunking）</p>
+<p>每台交换机上的一个特殊端口（左侧交换机上的端口 16, 右侧交换机上的端口 1) 被配置为干线端口，以互联这两台 VLAN 交换机。该干线端口属于所有 VLAN, 发送到任何 VLAN 的帧经过干线链路转发到其他交换机。</p>
+<p>IEEE 定义了一种扩展的以太网帧格式-802.1Q，用于跨越 VLAN 干线的帧。该帧由标准以太网帧与加进首部的 4 字节 VLAN 标签（VLAN tag）组成</p>
+</li>
+</ol>
+<p><img alt="ch6-p14" src="../pics/chapter6/ch6-p14.png" /></p>
+<h2 id="_9">链路虚拟化：网络作为链路层</h2>
+<h3 id="multiprotocol-label-switching-mpls">多协议标签交换（Multiprotocol Label Switching, MPLS）</h3>
+<p>目标：改善 ip 路由器的转发速度，使用固定长度的标签</p>
+<ul>
+<li>不放弃基于目的地 ip 数据报转发的基础设施</li>
+<li>使用固定的长度标识加快查找</li>
+</ul>
+<p><img alt="ch6-p15" src="../pics/chapter6/ch6-p15.png" /></p>
+<p>使用长度标识出接口可以不接触分组的 IP 首部</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年3月3日 15:40:11 UTC">2026年3月3日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年3月3日 15:40:11 UTC">2026年3月3日</span>
+  </span>
+
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="贡献者">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+      
+    </span>
+    <nav>
+      
+        <a href="mailto:waterminju@outlook.com">water-mi</a>
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.action.view", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
