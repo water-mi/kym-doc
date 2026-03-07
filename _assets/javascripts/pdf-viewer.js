@@ -1,7 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const viewers = document.querySelectorAll(".pdf-viewer-container");
+function initPDFViewers(context = document) {
+    const viewers = context.querySelectorAll(".pdf-viewer-container");
 
     viewers.forEach((container, index) => {
+        if (container.dataset.pdfInitialized) return;
+        container.dataset.pdfInitialized = "true";
+
         const url = container.dataset.pdf;
 
         // 提示文字
@@ -29,9 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
         pagesContainer.className = "pdf-viewer-pages pdf-viewer-vertical";
         container.appendChild(pagesContainer);
 
-        // 切换布局
+        // 横纵向切换
         controls.querySelectorAll(`input[name="${radioName}"]`).forEach(radio => {
-            radio.addEventListener("change", (e) => {
+            radio.addEventListener("change", e => {
                 if (e.target.checked) {
                     pagesContainer.classList.toggle("pdf-viewer-horizontal", e.target.value === "horizontal");
                     pagesContainer.classList.toggle("pdf-viewer-vertical", e.target.value === "vertical");
@@ -50,17 +53,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const pages = pagesContainer.querySelectorAll(".pdf-viewer-page");
 
-            // IntersectionObserver 懒加载每页
+            // IntersectionObserver 真正懒加载
             const observer = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const pageNum = parseInt(entry.target.dataset.page);
 
-                        // 只有在页面可视时才渲染 Canvas → JPG
                         pdf.getPage(pageNum).then(page => {
-                            const containerWidth = entry.target.clientWidth;
+                            const containerWidth = Math.max(entry.target.clientWidth, window.innerWidth * 0.8, 100);
                             const viewport = page.getViewport({ scale: 1 });
-                            const scale = containerWidth / viewport.width;
+                            const scale = Math.min(containerWidth / viewport.width, 1.5); // 限制最大 scale
                             const scaledViewport = page.getViewport({ scale });
 
                             const canvas = document.createElement("canvas");
@@ -77,12 +79,19 @@ document.addEventListener("DOMContentLoaded", () => {
                             });
                         });
 
-                        obs.unobserve(entry.target); // 每页只渲染一次
+                        obs.unobserve(entry.target);
                     }
                 });
-            }, { root: pagesContainer, rootMargin: "200px 0px" });
+            }, { root: null, rootMargin: "200px 0px" });
 
             pages.forEach(page => observer.observe(page));
         });
+
     });
-});
+}
+
+// 首次初始化
+document.addEventListener("DOMContentLoaded", () => initPDFViewers());
+
+// Material SPA 页面切换时重新初始化
+document.addEventListener("md-nav-updated", () => initPDFViewers());
