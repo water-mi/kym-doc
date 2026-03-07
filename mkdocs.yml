@@ -1,8 +1,8 @@
 site_name: 匡院笔记分享
-site_url: https://water-mi.github.io/kym-doc/
+site_url: https://kym-doc.github.io/doc/
 
 repo_name: KYM-DOC
-repo_url: https://github.com/water-mi/kym-doc
+repo_url: https://github.com/kym-doc/doc
 edit_uri: edit/main/docs/
 
 theme: 
