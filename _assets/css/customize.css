@@ -3,21 +3,56 @@
     src: url("../fonts/LXGWWenKaiMonoGBScreen.ttf");
 }
 
-.pdf-horizontal-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    /* 每页间隔 */
-    scroll-snap-type: x mandatory;
-    /* 滑动吸附到页 */
+/* PDF 容器 */
+.pdf-viewer-container {
+    position: relative;
     padding: 10px 0;
 }
 
-.pdf-page {
+/* 提示文字 */
+.pdf-viewer-notice {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* 控制按钮样式 */
+.pdf-viewer-controls {
+    margin-bottom: 5px;
+}
+
+/* 页面容器通用 */
+.pdf-viewer-pages {
+    display: flex;
+    gap: 10px;
+    scroll-snap-type: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 横向 */
+.pdf-viewer-horizontal {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+/* 纵向 */
+.pdf-viewer-vertical {
+    flex-direction: column;
+    overflow-y: auto;
+    scroll-snap-type: none;
+}
+
+/* 每页 */
+.pdf-viewer-page {
     flex: 0 0 auto;
     scroll-snap-align: start;
-    /* 每页吸附 */
-    width: 600px;
-    /* 页面宽度，可按需调整 */
-    height: auto;
+    width: 80vw;
+    max-width: 600px;
+}
+
+.pdf-viewer-page img {
+    width: 100%;
+    display: block;
 }
