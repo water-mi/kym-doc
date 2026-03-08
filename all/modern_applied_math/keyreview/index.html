@@ -1824,69 +1824,72 @@
 
 <h1 id="_1">要点回顾</h1>
 <blockquote>
+<p>编写人：2023级 计算机科学与技术(脑科学与人工智能) 陈力琰（要点回顾）</p>
 <p>以下收录的是笔者个人在学习这门课程时，比较困惑的几个 key points，不保证是考试重点。</p>
 </blockquote>
 <h2 id="lebesgue">Lebesgue可测函数列的收敛性</h2>
 <h3 id="def">Def</h3>
 <ul>
-<li>一致收敛：</li>
-</ul>
+<li>
+<p>一致收敛：</p>
 <p><span class="arithmatex">\(f_1(x),f_2(x),...,f_k(x),...\)</span>是定义在<span class="arithmatex">\(E\)</span>上的实值函数，任意<span class="arithmatex">\(\epsilon&gt;0\)</span>，存在<span class="arithmatex">\(K\in\mathbb{N}\)</span>，对任意<span class="arithmatex">\(k\geq K\)</span>，任意<span class="arithmatex">\(x\in E\)</span>，有
-  $$
-  |f_k(x)-f(x)|&lt;\epsilon
-  $$
-  则称<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上一致收敛到<span class="arithmatex">\(f\)</span>，记作<span class="arithmatex">\(f_k\Rightarrow f\)</span>或者<span class="arithmatex">\(f\overset{u}\rightarrow f\)</span>.</p>
-<ul>
-<li>几乎一致收敛：</li>
-</ul>
+$$
+|f_k(x)-f(x)|&lt;\epsilon
+$$
+则称<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上一致收敛到<span class="arithmatex">\(f\)</span>，记作<span class="arithmatex">\(f_k\Rightarrow f\)</span>或者<span class="arithmatex">\(f\overset{u}\rightarrow f\)</span>.</p>
+</li>
+<li>
+<p>几乎一致收敛：</p>
 <p><span class="arithmatex">\(\forall\delta&gt;0,\exist E_{\delta}\subset E\)</span>，使得<span class="arithmatex">\(m(E\backslash E_{\delta})&lt;\delta\)</span>，在<span class="arithmatex">\(E_{\delta}\)</span>上<span class="arithmatex">\(f_k\Rightarrow f\)</span>，则称<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E_{\delta}\)</span>上几乎一致收敛到<span class="arithmatex">\(f\)</span>，记作<span class="arithmatex">\(f_k\overset{a.u.}\rightarrow f\)</span>.</p>
-<ul>
-<li>几乎处处收敛（点点）：</li>
-</ul>
+</li>
+<li>
+<p>几乎处处收敛（点点）：</p>
 <p><span class="arithmatex">\(f_1(x),f_2(x),...,f_k(x),...\)</span>是定义在<span class="arithmatex">\(E\)</span>上的实值函数，若存在<span class="arithmatex">\(E\)</span>中的点集<span class="arithmatex">\(Z\)</span>，<span class="arithmatex">\(m(Z)=0\)</span>，对任意<span class="arithmatex">\(x\in E\backslash Z\)</span>，有
-  $$
-  \underset{k\rightarrow \infty}{\text{lim}}f_k(x)=f(x)
-  $$
-  则称<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上几乎处处收敛于<span class="arithmatex">\(f(x)\)</span>，记作<span class="arithmatex">\(f_k\rightarrow f,a.e.[E]\)</span>或<span class="arithmatex">\(f_k\overset{a.e.}\rightarrow f\)</span>.</p>
-<ul>
-<li>依测度收敛：</li>
-</ul>
+$$
+\underset{k\rightarrow \infty}{\text{lim}}f_k(x)=f(x)
+$$
+则称<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上几乎处处收敛于<span class="arithmatex">\(f(x)\)</span>，记作<span class="arithmatex">\(f_k\rightarrow f,a.e.[E]\)</span>或<span class="arithmatex">\(f_k\overset{a.e.}\rightarrow f\)</span>.</p>
+</li>
+<li>
+<p>依测度收敛：</p>
 <p><span class="arithmatex">\(f_1(x),f_2(x),...,f_k(x),...\)</span>是定义在<span class="arithmatex">\(E\)</span>上几乎处处有限的可测函数，任意<span class="arithmatex">\(\epsilon &gt; 0\)</span>，有
-  $$
-  \underset{k\rightarrow\infty}{\text{lim}}\hspace{0.1cm}m(E(|f_k-f|&gt;\epsilon))=0
-  $$
-  则称<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上依测度收敛到<span class="arithmatex">\(f(x)\)</span>，记作<span class="arithmatex">\(f_k\overset{m}\rightarrow f\)</span>.</p>
+$$
+\underset{k\rightarrow\infty}{\text{lim}}\hspace{0.1cm}m(E(|f_k-f|&gt;\epsilon))=0
+$$
+则称<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上依测度收敛到<span class="arithmatex">\(f(x)\)</span>，记作<span class="arithmatex">\(f_k\overset{m}\rightarrow f\)</span>.</p>
+</li>
+</ul>
 <h3 id="_2">几种收敛性之间的关系</h3>
 <ul>
-<li>若<span class="arithmatex">\(f_n\overset{a.u.}\rightarrow f\)</span>，则<span class="arithmatex">\(f_n\rightarrow f,a.e.[E]\)</span>.（Cautious：这个证明是自己乱写的）</li>
-</ul>
-<blockquote>
-<p>[!TIP]</p>
+<li>
+<p>若<span class="arithmatex">\(f_n\overset{a.u.}\rightarrow f\)</span>，则<span class="arithmatex">\(f_n\rightarrow f,a.e.[E]\)</span>.（Cautious：这个证明是自己乱写的）</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p><span class="arithmatex">\(f_n\overset{a.u.}{\rightarrow}f\)</span>，则任意<span class="arithmatex">\(\epsilon=\frac{1}{k(k+1)}\)</span>，存在<span class="arithmatex">\(E_k\sub E\)</span>，<span class="arithmatex">\(\mu(E_k)&lt;\frac{1}{k(k+1)}\)</span>，在<span class="arithmatex">\(E\backslash E_k\)</span>上，<span class="arithmatex">\(f_n\)</span>一致收敛到<span class="arithmatex">\(f\)</span>。定义
 $$
 E_0=\underset{m=1}{\overset{\infty}\bigcap}\underset{k\geq m}{\bigcup}E_k
 $$
 注意到<span class="arithmatex">\(\underset{k\geq m}{\bigcup}E_k\)</span>是一列随着<span class="arithmatex">\(m\)</span>递增单调递减（至少单调不增）的集合列，所以当<span class="arithmatex">\(m\rightarrow\infty\)</span>时，有
 $$
-\underset{k\geq m}{\bigcup}E_k\rightarrow\underset{m=1}{\overset{\infty}\bigcap}\underset{k\geq m}{\bigcup}E_k=E_0\
+\underset{k\geq m}{\bigcup}E_k\rightarrow\underset{m=1}{\overset{\infty}\bigcap}\underset{k\geq m}{\bigcup}E_k=E_0\\
 m(E_0)=m\left(\underset{m=1}{\overset{\infty}\bigcap}\underset{k\geq m}{\bigcup}E_k\right)=\underset{m\rightarrow\infty}{\text{lim}}m\left(\underset{k\geq m}{\bigcup}E_k\right)\leq \underset{m\rightarrow\infty}{\text{lim}}\underset{k=m}{\overset{\infty}\sum}m(E_k)\leq\underset{m\rightarrow\infty}{\text{lim}}\frac{1}{m}=0
 $$
 即<span class="arithmatex">\(E_0\)</span>是一个零测集。在<span class="arithmatex">\(E\backslash E_0\)</span>上，<span class="arithmatex">\(f_n(x)\rightarrow f(x)\)</span>一致收敛，因此<span class="arithmatex">\(f_n\rightarrow f\)</span>在<span class="arithmatex">\(E\backslash E_0\)</span>上点点收敛。</p>
-</blockquote>
-<ul>
-<li><strong>叶戈罗夫定理</strong>：<span class="arithmatex">\(m(E)&lt;\infty\)</span>，<span class="arithmatex">\(f_1(x),f_2(x),...,f_k(x),...\)</span>和<span class="arithmatex">\(f(x)\)</span>都是<span class="arithmatex">\(E\)</span>上几乎处处有限的可测函数，若<span class="arithmatex">\(f_k\rightarrow f, a.e.[E]\)</span>，则<span class="arithmatex">\(\{f_k(x)\}\)</span>几乎一致收敛于<span class="arithmatex">\(f(x)\)</span>.</li>
-</ul>
-<blockquote>
-<p>[!TIP]</p>
+</div>
+</li>
+<li>
+<p><strong>叶戈罗夫定理</strong>：<span class="arithmatex">\(m(E)&lt;\infty\)</span>，<span class="arithmatex">\(f_1(x),f_2(x),...,f_k(x),...\)</span>和<span class="arithmatex">\(f(x)\)</span>都是<span class="arithmatex">\(E\)</span>上几乎处处有限的可测函数，若<span class="arithmatex">\(f_k\rightarrow f, a.e.[E]\)</span>，则<span class="arithmatex">\(\{f_k(x)\}\)</span>几乎一致收敛于<span class="arithmatex">\(f(x)\)</span>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>注意限制条件<span class="arithmatex">\(m(E)&lt;\infty\)</span>，否则有这样的反例：</p>
 <p>定义在<span class="arithmatex">\([0,\infty)\)</span>上的函数列<span class="arithmatex">\(f_n(x)=\chi_{[n,n+1]}\)</span>，任意<span class="arithmatex">\(x\in[0,\infty)\)</span>都趋于0，<span class="arithmatex">\(f_n\)</span>点点趋于0，但<span class="arithmatex">\(f_n\)</span>并不几乎一致收敛到0（甚至不满足依测度收敛到0）.</p>
 <p>叶戈罗夫定理的证明略复杂，不在这里讨论了。</p>
-</blockquote>
-<ul>
-<li><span class="arithmatex">\(m(E)&lt;\infty\)</span>，<span class="arithmatex">\(f_1(x),f_2(x),...,f_k(x),...\)</span>是<span class="arithmatex">\(E\)</span>上几乎处处有限的可测函数列，若<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上几乎处处收敛，则<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上依测度收敛到同一函数.</li>
-</ul>
-<blockquote>
-<p>[!TIP]</p>
+</div>
+</li>
+<li>
+<p><span class="arithmatex">\(m(E)&lt;\infty\)</span>，<span class="arithmatex">\(f_1(x),f_2(x),...,f_k(x),...\)</span>是<span class="arithmatex">\(E\)</span>上几乎处处有限的可测函数列，若<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上几乎处处收敛，则<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上依测度收敛到同一函数.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>根据叶戈罗夫定理，<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上几乎一致收敛，记极限函数为<span class="arithmatex">\(f(x)\)</span>。任意<span class="arithmatex">\(\delta&gt;0\)</span>，存在<span class="arithmatex">\(E_{\delta}\sub E\)</span>，<span class="arithmatex">\(m(E\backslash E_{\delta})&lt;\delta\)</span>，在<span class="arithmatex">\(E_{\delta}\)</span>上，<span class="arithmatex">\(f_k\rightarrow f\)</span>。所以，任意<span class="arithmatex">\(\epsilon&gt;0\)</span>，存在<span class="arithmatex">\(K\in\mathbb{N}\)</span>，当<span class="arithmatex">\(k&gt;K\)</span>时，有
 $$
 |f_k(x)-f(x)|&lt;\epsilon,\quad\forall x\in E_{\delta}
@@ -1899,13 +1902,15 @@ $$
 $$
 \underset{k\rightarrow\infty}{\text{lim}}m(E(|f_k-f|\geq \epsilon))=0
 $$</p>
-</blockquote>
+</div>
+</li>
+</ul>
 <h3 id="something-else">Something else</h3>
 <ul>
-<li>若函数列<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上依测度收敛于<span class="arithmatex">\(f(x)\)</span>与<span class="arithmatex">\(g(x)\)</span>，则<span class="arithmatex">\(f(x)\)</span>与<span class="arithmatex">\(g(x)\)</span>几乎处处相等（依测度收敛的唯一性）.</li>
-</ul>
-<blockquote>
-<p>[!TIP]</p>
+<li>
+<p>若函数列<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上依测度收敛于<span class="arithmatex">\(f(x)\)</span>与<span class="arithmatex">\(g(x)\)</span>，则<span class="arithmatex">\(f(x)\)</span>与<span class="arithmatex">\(g(x)\)</span>几乎处处相等（依测度收敛的唯一性）.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>因为
 $$
 |f(x)-g(x)|\leq|f(x)-f_k(x)|+|f_k(x)-g(x)|,\quad a.e.[E]
@@ -1919,92 +1924,100 @@ $$
 \underset{k\rightarrow\infty}{\text{lim}}\hspace{0.1cm}m(E(|f-g|&gt;\epsilon))=0
 $$
 又由<span class="arithmatex">\(\epsilon\)</span>的任意性，<span class="arithmatex">\(f(x)=g(x),a.e.[E]\)</span></p>
-</blockquote>
-<ul>
-<li><strong>Riesz定理</strong>：设<span class="arithmatex">\(f(x)\)</span>，<span class="arithmatex">\(\{f_k(x)\}\)</span>是可测集<span class="arithmatex">\(E\)</span>上几乎处处有限的可测函数，若<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上依测度收敛于<span class="arithmatex">\(f(x)\)</span>，则存在子列<span class="arithmatex">\(\{f_{k_i}(x)\}\)</span>，使得
+</div>
+</li>
+<li>
+<p><strong>Riesz定理</strong>：设<span class="arithmatex">\(f(x)\)</span>，<span class="arithmatex">\(\{f_k(x)\}\)</span>是可测集<span class="arithmatex">\(E\)</span>上几乎处处有限的可测函数，若<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上依测度收敛于<span class="arithmatex">\(f(x)\)</span>，则存在子列<span class="arithmatex">\(\{f_{k_i}(x)\}\)</span>，使得
   $$
   \underset{i\rightarrow\infty}{\text{lim}}f_{k_i}(x)=f(x),\quad a.e.[E]
-  $$</li>
-</ul>
-<blockquote>
-<p>[!TIP]</p>
+  $$</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>因为<span class="arithmatex">\(\{f_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上</p>
-</blockquote>
+</div>
+</li>
+</ul>
 <h3 id="_3">可测函数 &amp; 连续函数</h3>
 <ul>
-<li><strong>鲁金定理</strong>：</li>
-</ul>
+<li>
+<p><strong>鲁金定理</strong>：</p>
 <p>设<span class="arithmatex">\(f(x)\)</span>是可测集<span class="arithmatex">\(E\)</span>上的几乎处处有限的<strong>可测</strong>函数，则任意<span class="arithmatex">\(\delta&gt;0\)</span>，存在<span class="arithmatex">\(E\)</span>中的一个闭集<span class="arithmatex">\(F\)</span>，<span class="arithmatex">\(m(E\backslash F)&lt;\delta\)</span>，<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(F\)</span>上连续.</p>
 <blockquote>
 <p>鲁金定理表明，在一定意义上，<span class="arithmatex">\(\mathbb{R}^n\)</span>上的可测函数实际上很接近于连续函数。</p>
-<p>[!NOTE]</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>几乎处处有限<span class="arithmatex">\(\neq\)</span>几乎处处有界：
 $$
 f(x) = 
 \begin{cases}
-\frac{1}{x}, &amp; \text{if } x \in (0, 1] \
+\frac{1}{x}, &amp; \text{if } x \in (0, 1] \\
 +\infty, &amp; \text{if } x = 0
 \end{cases}
 $$
 <span class="arithmatex">\(f(x)\)</span>几乎处处有限，但并不几乎处处有界。</p>
-</blockquote>
-<ul>
-<li>推论1：</li>
-</ul>
+</div>
+</li>
+<li>
+<p>推论1：</p>
 <p>若<span class="arithmatex">\(f(x)\)</span>是可测集<span class="arithmatex">\(E\subset \mathbb{R}^n\)</span>上几乎处处有限的可测函数，则存在<span class="arithmatex">\(\mathbb{R}^n\)</span>上的连续函数列<span class="arithmatex">\(\{g_k(x)\}\)</span>，<span class="arithmatex">\(\{g_k(x)\}\)</span>在<span class="arithmatex">\(E\)</span>上几乎处处收敛到<span class="arithmatex">\(f(x)\)</span>.</p>
-<ul>
-<li>引理：</li>
-</ul>
+</li>
+<li>
+<p>引理：</p>
 <p>设<span class="arithmatex">\(F\sub \mathbb{R}^n\)</span>是一个非空闭集，函数<span class="arithmatex">\(f(x)\)</span>是<span class="arithmatex">\(F\)</span>上的连续函数，则存在<span class="arithmatex">\(\mathbb{R}^n\)</span>上的连续函数<span class="arithmatex">\(g(x)\)</span>，使得<span class="arithmatex">\(g|_F=f\)</span>，且<span class="arithmatex">\(\underset{x\in\mathbb{R}^n}{\text{sup}}|g(x)|=\underset{x\in F}{\text{sup}}|f(x)|\)</span>.</p>
-<ul>
-<li>推论2：</li>
-</ul>
+</li>
+<li>
+<p>推论2：</p>
 <p>设<span class="arithmatex">\(f(x)\)</span>是可测集<span class="arithmatex">\(E\)</span>上的几乎处处有限的函数，则<span class="arithmatex">\(f(x)\)</span>可测的充分必要条件是，存在<span class="arithmatex">\(E\)</span>上连续函数序列<span class="arithmatex">\(\{g_k(x)\}\)</span>，<span class="arithmatex">\(\{g_k(x)\}\)</span>几乎处处收敛到<span class="arithmatex">\(f\)</span>.</p>
+</li>
+</ul>
 <h2 id="lebesgue_1">Lebesgue可测函数的积分</h2>
 <h3 id="def_1">Def</h3>
 <ul>
-<li>非负可测简单函数的积分：</li>
-</ul>
+<li>
+<p>非负可测简单函数的积分：</p>
 <p>设<span class="arithmatex">\(h(x)\)</span>是可测集<span class="arithmatex">\(E\sub\mathbb{R}^n\)</span>上非负可测简单函数，即（注意，下式当中<span class="arithmatex">\(E_j\)</span>是互不相交的集合，并起来是<span class="arithmatex">\(E\)</span>）
-  $$
-  h(x)=\underset{j=1}{\overset{m}\sum}a_j\chi_{E_j}(x),\quad x\in E
-  $$
-  定义<span class="arithmatex">\(h(x)\)</span>在可测集<span class="arithmatex">\(E\)</span>上的积分为
-  $$
-  \int_Eh(x)\text{d}x=\underset{j=1}{\overset{m}\sum}a_jm(E_j)
-  $$</p>
-<ul>
-<li>非负可测函数的积分：</li>
-</ul>
-<p>设<span class="arithmatex">\(f(x)\)</span>是可测集<span class="arithmatex">\(E\)</span>上的非负可测函数，定义函数<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(E\)</span>上的积分
-  $$
-  \int_Ef(x)\text{d}x=\text{sup}\left{ \int_E h(x)\text{d}x\vline h(x)\text{是非负可测简单函数，且}h(x)\leq f(x)\right}
-  $$
-  这里的积分可以是<span class="arithmatex">\(+\infty\)</span>，若积分<span class="arithmatex">\(&lt;\infty\)</span>，则称<span class="arithmatex">\(f\)</span>在<span class="arithmatex">\(E\)</span>上是Lebesgue可积的。</p>
-<ul>
-<li>一般可测函数的积分：</li>
-</ul>
+$$
+h(x)=\underset{j=1}{\overset{m}\sum}a_j\chi_{E_j}(x),\quad x\in E
+$$
+定义<span class="arithmatex">\(h(x)\)</span>在可测集<span class="arithmatex">\(E\)</span>上的积分为
+$$
+\int_Eh(x)\text{d}x=\underset{j=1}{\overset{m}\sum}a_jm(E_j)
+$$</p>
+</li>
+<li>
+<p>非负可测函数的积分：</p>
+<p>设<span class="arithmatex">\(f(x)\)</span>是可测集<span class="arithmatex">\(E\)</span>上的非负可测函数，定义函数<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(E\)</span>上的积分</p>
+<div class="arithmatex">\[
+\int_E f(x)\text{d}x=\text{sup}\left\{ \int_E h(x)\text{d}x\mid h(x)\text{是非负可测简单函数，且}h(x)\leq f(x)\right\}
+\]</div>
+<p>这里的积分可以是<span class="arithmatex">\(+\infty\)</span>，若积分<span class="arithmatex">\(&lt;\infty\)</span>，则称<span class="arithmatex">\(f\)</span>在<span class="arithmatex">\(E\)</span>上是Lebesgue可积的。</p>
+</li>
+<li>
+<p>一般可测函数的积分：</p>
 <p>设<span class="arithmatex">\(f(x)\)</span>是<span class="arithmatex">\(E\)</span>上的可测函数，若<span class="arithmatex">\(f^+(x)\)</span>和<span class="arithmatex">\(f^-(x)\)</span>中至少有一个是可积的，则称
-  $$
-  \int_Ef(x)\text{d}x=\int_Ef^+(x)\text{d}x-\int_Ef^-(x)\text{d}x
-  $$
-  为<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(E\)</span>上的积分。当上式右端两个积分值皆为有限时，称<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(E\)</span>上是Lebesgue可积的。根据以上定义，显然还有
-  $$
-  \int_E|f(x)|\text{d}x=\int_Ef^+(x)\text{d}x+\int_Ef^-(x)\text{d}x
-  $$</p>
+$$
+\int_Ef(x)\text{d}x=\int_Ef^+(x)\text{d}x-\int_Ef^-(x)\text{d}x
+$$
+为<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(E\)</span>上的积分。当上式右端两个积分值皆为有限时，称<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(E\)</span>上是Lebesgue可积的。根据以上定义，显然还有
+$$
+\int_E|f(x)|\text{d}x=\int_Ef^+(x)\text{d}x+\int_Ef^-(x)\text{d}x
+$$</p>
+</li>
+</ul>
 <h2 id="lebesgue_2">Lebesgue积分的极限定理</h2>
 <blockquote>
 <p>重点讨论Lebesgue积分与极限运算的交换定理</p>
 </blockquote>
 <ul>
-<li><strong>Lebesgue基本定理</strong>：</li>
-</ul>
-<p>设<span class="arithmatex">\(\{f_n(x)\}\)</span>是可测集<span class="arithmatex">\(E\)</span>上的非负可测函数列，<span class="arithmatex">\(f(x)=\underset{n=1}{\overset{\infty}\sum}f_n(x)\)</span>，则
-  $$
-  \int_Ef(x)\text{d}x=\underset{n=1}{\overset{\infty}\sum}\int_Ef_n(x)\text{d}x
-  $$</p>
-<blockquote>
-<p>[!TIP]</p>
+<li>
+<p><strong>Lebesgue基本定理</strong>：</p>
+<p>设<span class="arithmatex">\(\{f_n(x)\}\)</span>是可测集<span class="arithmatex">\(E\)</span>上的非负可测函数列，<span class="arithmatex">\(f(x)=\underset{n=1}{\overset{\infty}\sum}f_n(x)\)</span>，则</p>
+<div class="arithmatex">\[
+\int_Ef(x)\text{d}x=\underset{n=1}{\overset{\infty}\sum}\int_Ef_n(x)\text{d}x
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>令
 $$
 S_k(x)=\underset{n=1}{\overset{k}\sum}f_n(x)
@@ -2013,20 +2026,20 @@ $$
 $$
 \int_Ef(x)\text{d}x=\underset{k\rightarrow\infty}{\text{lim}}\int_ES_k(x)\text{d}x=\underset{k\rightarrow\infty}{\text{lim}}\underset{n=1}{\overset{k}\sum}\int_Ef_n(x)\text{d}x=\underset{n=1}{\overset{\infty}\sum}\int_Ef_n(x)\text{d}x
 $$</p>
-</blockquote>
-<ul>
-<li>推论：</li>
-</ul>
+</div>
+</li>
+<li>
+<p>推论：</p>
 <p>若<span class="arithmatex">\(\{E_n\}\)</span>是可测集<span class="arithmatex">\(E\)</span>的互不相交的可测子集，
-  $$
-  E=\underset{n=1}{\overset{\infty}\bigcup}E_n
-  $$
-  当函数<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(E\)</span>上有积分时，<span class="arithmatex">\(f(x)\)</span>在每一个子集<span class="arithmatex">\(E_n\)</span>上都是有积分的。特别地，当<span class="arithmatex">\(f\in L(E)\)</span>时，<span class="arithmatex">\(f\in L(E_n)\)</span>，并且
-  $$
-  \int_Ef(x)\text{d}x=\underset{n=1}{\overset{\infty}\sum}\int_{E_n}f(x)\text{d}x
-  $$</p>
-<blockquote>
-<p>[!TIP]</p>
+$$
+E=\underset{n=1}{\overset{\infty}\bigcup}E_n
+$$
+当函数<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(E\)</span>上有积分时，<span class="arithmatex">\(f(x)\)</span>在每一个子集<span class="arithmatex">\(E_n\)</span>上都是有积分的。特别地，当<span class="arithmatex">\(f\in L(E)\)</span>时，<span class="arithmatex">\(f\in L(E_n)\)</span>，并且
+$$
+\int_Ef(x)\text{d}x=\underset{n=1}{\overset{\infty}\sum}\int_{E_n}f(x)\text{d}x
+$$</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>因为
 $$
 f^+(x)=\underset{n=1}{\overset{\infty}\sum}f^+(x)\chi_{E_n}(x)
@@ -2058,9 +2071,9 @@ $$
 所以<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(E_n\)</span>上有积分，进而有
 $$
 \begin{aligned}
-\int_{E}f(x)\text{d}x&amp;=\int_{E}f^+(x)\text{d}x-\int_{E}f^-(x)\text{d}x\
-&amp;=\underset{n=1}{\overset{\infty}\sum}\int_{E_n}f^+(x)\text{d}x-\underset{n=1}{\overset{\infty}\sum}\int_{E_n}f^-(x)\text{d}x\
-&amp;=\underset{n=1}{\overset{\infty}\sum}\left(\int_{E_n}f^+(x)\text{d}x-\int_{E_n}f^-(x)\text{d}x\right)\
+\int_{E}f(x)\text{d}x&amp;=\int_{E}f^+(x)\text{d}x-\int_{E}f^-(x)\text{d}x\\
+&amp;=\underset{n=1}{\overset{\infty}\sum}\int_{E_n}f^+(x)\text{d}x-\underset{n=1}{\overset{\infty}\sum}\int_{E_n}f^-(x)\text{d}x\\
+&amp;=\underset{n=1}{\overset{\infty}\sum}\left(\int_{E_n}f^+(x)\text{d}x-\int_{E_n}f^-(x)\text{d}x\right)\\
 &amp;=\underset{n=1}{\overset{\infty}\sum}\int_{E_n}f(x)\text{d}x
 \end{aligned}
 $$
@@ -2073,19 +2086,19 @@ $$
 \int_{E_n}f^+(x)\text{d}x\text{与}\int_{E_n}f^-(x)\text{d}x
 $$
 都有限，故<span class="arithmatex">\(f\in L(E_n)\)</span>.</p>
-</blockquote>
-<ul>
-<li><strong>Fatou引理</strong>：</li>
-</ul>
+</div>
+</li>
+<li>
+<p><strong>Fatou引理</strong>：</p>
 <p>若<span class="arithmatex">\(\{f_n(x)\}\)</span>是可测集<span class="arithmatex">\(E\)</span>上非负可测函数列，则
-  $$
-  \int_{E}\underset{n\rightarrow\infty}{\underline{\text{lim}}}f_n(x)\text{d}x\leq \underset{n\rightarrow\infty}{\underline{\text{lim}}}\int_{E}f_n(x)\text{d}x
-  $$</p>
-<blockquote>
-<p>[!TIP]</p>
+$$
+\int_{E}\underset{n\rightarrow\infty}{\underline{\text{lim}}}f_n(x)\text{d}x\leq \underset{n\rightarrow\infty}{\underline{\text{lim}}}\int_{E}f_n(x)\text{d}x
+$$</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>考虑非负函数<span class="arithmatex">\(g_n(x)=\text{inf}\{f_j(x)|j\geq n\}\)</span>，那么<span class="arithmatex">\(g_n\)</span>是一个单调递增的函数列，即
 $$
-g_n(x)\leq g_{n+1}(x),k=1,2,...\
+g_n(x)\leq g_{n+1}(x),k=1,2,...\\
 \Rightarrow \underset{n\rightarrow\infty}{\text{lim}}g_n(x)=\underset{n\rightarrow\infty}{\underline{\text{lim}}}f_n(x),x\in E.
 $$
 从而由Levi定理得
@@ -2104,25 +2117,25 @@ $$
 $$
 \int_{\mathbb{R}}\underset{n\rightarrow\infty}{\text{lim}}f_n(x)\text{d}x=0&lt;1=\underset{n\rightarrow\infty}{\text{lim}}\int_{\mathbb{R}}f_n(x)\text{d}x
 $$</p>
-</blockquote>
-<ul>
-<li><strong>控制收敛定理</strong>：</li>
-</ul>
+</div>
+</li>
+<li>
+<p><strong>控制收敛定理</strong>：</p>
 <p>给定可测集<span class="arithmatex">\(E\)</span>，<span class="arithmatex">\(\{f_n(x)\}\)</span>是可测函数列，且
-  $$
-  \underset{n\rightarrow\infty}{\text{lim}}f_n(x)=f(x),\quad a.e.[E]
-  $$
-  若存在函数<span class="arithmatex">\(F(x)\in L(E)\)</span>，任意<span class="arithmatex">\(n\)</span>，有
-  $$
-  |f_n(x)|\leq F(x), \quad a.e.[E]
-  $$
-  则<span class="arithmatex">\(f_n(x)\in L(E),n=1,2,3,...\)</span>，<span class="arithmatex">\(f(x)\in L(E)\)</span>，且
-  $$
-  \underset{n\rightarrow\infty}{\text{lim}}\int_Ef_n(x)\text{d}x=\int_Ef(x)\text{d}x
-  $$
-  函数<span class="arithmatex">\(F(x)\)</span>称为函数列<span class="arithmatex">\(\{f_n(x)\}\)</span>的控制函数。</p>
-<blockquote>
-<p>[!TIP]</p>
+$$
+\underset{n\rightarrow\infty}{\text{lim}}f_n(x)=f(x),\quad a.e.[E]
+$$
+若存在函数<span class="arithmatex">\(F(x)\in L(E)\)</span>，任意<span class="arithmatex">\(n\)</span>，有
+$$
+|f_n(x)|\leq F(x), \quad a.e.[E]
+$$
+则<span class="arithmatex">\(f_n(x)\in L(E),n=1,2,3,...\)</span>，<span class="arithmatex">\(f(x)\in L(E)\)</span>，且
+$$
+\underset{n\rightarrow\infty}{\text{lim}}\int_Ef_n(x)\text{d}x=\int_Ef(x)\text{d}x
+$$
+函数<span class="arithmatex">\(F(x)\)</span>称为函数列<span class="arithmatex">\(\{f_n(x)\}\)</span>的控制函数。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>因为
 $$
 |f_n(x)|\leq F(x), \quad a.e.[E]
@@ -2149,23 +2162,23 @@ $$
 $$
 最后，由不等式
 $$
-\vline \int_Ef(x)\text{d}x-\int_Ef_n(x)\text{d}x\vline\leq\int_Eg_n(x)\text{d}x
+| \int_Ef(x)\text{d}x-\int_Ef_n(x)\text{d}x|\leq\int_Eg_n(x)\text{d}x
 $$
 令<span class="arithmatex">\(n\rightarrow\infty\)</span>，得证。</p>
-</blockquote>
-<ul>
-<li>推论1：</li>
-</ul>
+</div>
+</li>
+<li>
+<p>推论1：</p>
 <p>设<span class="arithmatex">\(E\)</span>是可测集，<span class="arithmatex">\(\{f_n(x)\}\)</span>是可测函数列，且<span class="arithmatex">\(\{f_n(x)\}\)</span>依测度收敛到<span class="arithmatex">\(f(x)\)</span>，若存在<span class="arithmatex">\(F(x)\in L(E)\)</span>，满足
-  $$
-  |f_n(x)|\leq F(x),\quad a.e.[E],n=1,2,3...
-  $$
-  则<span class="arithmatex">\(f_n(x)\in L(E),n=1,2,3,...\)</span>，<span class="arithmatex">\(f\in L(E)\)</span>，且
-  $$
-  \underset{n\rightarrow\infty}{\text{lim}}\int_Ef_n(x)\text{d}x=\int_Ef(x)\text{d}x
-  $$</p>
-<blockquote>
-<p>[!TIP]</p>
+$$
+|f_n(x)|\leq F(x),\quad a.e.[E],n=1,2,3...
+$$
+则<span class="arithmatex">\(f_n(x)\in L(E),n=1,2,3,...\)</span>，<span class="arithmatex">\(f\in L(E)\)</span>，且
+$$
+\underset{n\rightarrow\infty}{\text{lim}}\int_Ef_n(x)\text{d}x=\int_Ef(x)\text{d}x
+$$</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>因为<span class="arithmatex">\(\{f_n(x)\}\)</span>依测度收敛到<span class="arithmatex">\(f(x)\)</span>，由Riesz定理知，存在子列<span class="arithmatex">\(f_{n_k}(x)\rightarrow f(x),a.e.[E]\)</span>，故<span class="arithmatex">\(f(x)\in L(E)\)</span>.</p>
 <p>记<span class="arithmatex">\(g_n(x)=|f_n(x)-f(x)|\)</span>，只要证明
 $$
@@ -2184,18 +2197,20 @@ $$
 \underset{k\rightarrow\infty}{\text{lim}}\int_Eg_{n_k}(x)\text{d}x=0
 $$
 这与上述不等式矛盾，得证。</p>
-</blockquote>
-<ul>
-<li>推论2：</li>
-</ul>
+</div>
+</li>
+<li>
+<p>推论2：</p>
 <p>设<span class="arithmatex">\(m(E)&lt;\infty\)</span>，<span class="arithmatex">\(\{f_n(x)\}\sub L(E)\)</span>，且<span class="arithmatex">\(\{f_n(x)\}\)</span>一致有界，即存在常数<span class="arithmatex">\(M&gt;0\)</span>，使得
-  $$
-  |f_n(x)|\leq M,\quad n=1,2,3,...\forall x\in E
-  $$
-  则当<span class="arithmatex">\(f_n(x)\rightarrow f(x),a.e.[E]\)</span>，或<span class="arithmatex">\(\{f_n(x)\}\)</span>依测度收敛到<span class="arithmatex">\(f(x)\)</span>时，均有
-  $$
-  \underset{n\rightarrow\infty}{\text{lim}}\int_Ef_n(x)\text{d}x=\int_Ef(x)\text{d}x
-  $$</p>
+$$
+|f_n(x)|\leq M,\quad n=1,2,3,...\forall x\in E
+$$
+则当<span class="arithmatex">\(f_n(x)\rightarrow f(x),a.e.[E]\)</span>，或<span class="arithmatex">\(\{f_n(x)\}\)</span>依测度收敛到<span class="arithmatex">\(f(x)\)</span>时，均有
+$$
+\underset{n\rightarrow\infty}{\text{lim}}\int_Ef_n(x)\text{d}x=\int_Ef(x)\text{d}x
+$$</p>
+</li>
+</ul>
 <h2 id="lp-space"><span class="arithmatex">\(L^p\)</span> space</h2>
 <h3 id="definition">Definition</h3>
 <h4 id="common-cases">Common Cases</h4>
@@ -2214,379 +2229,387 @@ $$
 <h3 id="inequalities">Inequalities</h3>
 <p>以下约定<span class="arithmatex">\(1\leq p,q\leq\infty\)</span>，<span class="arithmatex">\(p^{-1}+q^{-1}=1\)</span>，称<span class="arithmatex">\(p\)</span>和<span class="arithmatex">\(q\)</span>为共轭指数；若<span class="arithmatex">\(1&lt;p&lt;\infty\)</span>，<span class="arithmatex">\(q=p/(p-1)\)</span>。</p>
 <ol>
-<li><strong>Young's Inequality</strong>
-   $$
-   ab\leq\frac{a^p}{p}+\frac{b^q}{q},\quad a,b\geq 0
-   $$</li>
-</ol>
-<blockquote>
-<p><strong>Proof</strong></p>
+<li>
+<p><strong>Young's Inequality</strong>
+    $$
+    ab\leq\frac{a^p}{p}+\frac{b^q}{q},\quad a,b\geq 0
+    $$</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>由于<span class="arithmatex">\(\ln x\)</span>在<span class="arithmatex">\(x&gt;0\)</span>上是上凸函数（凹函数），所以<span class="arithmatex">\(\frac{1}{p}\ln a^p+\frac{1}{q}\ln b^q\leq\ln(\frac{a^p}{p}+\frac{b^q}{q})\)</span>，从而有
 $$
 ab\leq\frac{a^p}{p}+\frac{b^q}{q}
 $$</p>
-</blockquote>
-<ol>
-<li><strong>Hölder's Inequality</strong>
-   $$
-   |fg|_1\leq|f|_p|g|_q,\quad f\in L^p(E),g\in L^q(E)
-   $$</li>
-</ol>
-<blockquote>
-<p>[!TIP]</p>
+</div>
+</li>
+<li>
+<p><strong>Hölder's Inequality</strong>
+    $$
+    |fg|_1\leq|f|_p|g|_q,\quad f\in L^p(E),g\in L^q(E)
+    $$</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <ol>
 <li>
 <p><span class="arithmatex">\(\|f\|_p=0\)</span>或<span class="arithmatex">\(\|g\|_q=0\)</span>，总有<span class="arithmatex">\(f(x)g(x)=0,a.e.[E]\)</span>，不等式显然成立；</p>
 </li>
 <li>
 <p><span class="arithmatex">\(\|f\|_p&gt;0,\|g\|_q&gt;0\)</span>，令
-   $$
-   a=\frac{|f(x)|^p}{|f|_p^p},\quad b=\frac{|g(x)|^q}{|g|_q^q}
-   $$
-   带入Young's Inequality，有
-   $$
-   \frac{|f(x)g(x)|}{|f|_p|g|_q}\leq\frac{1}{p}\frac{|f(x)|^p}{|f|_p^p}+\frac{1}{q}\frac{|g(x)|^q}{|g|_q^q}
-   $$
-   将上式做积分，即可证得Hölder不等式。</p>
+$$
+a=\frac{|f(x)|^p}{|f|_p^p},\quad b=\frac{|g(x)|^q}{|g|_q^q}
+$$
+带入Young's Inequality，有
+$$
+\frac{|f(x)g(x)|}{|f|_p|g|_q}\leq\frac{1}{p}\frac{|f(x)|^p}{|f|_p^p}+\frac{1}{q}\frac{|g(x)|^q}{|g|_q^q}
+$$
+将上式做积分，即可证得Hölder不等式。</p>
 </li>
 </ol>
-</blockquote>
-<ol>
-<li><strong>Minkowski's Inequality</strong>
-   $$
-   |f+g|_p\leq|f|_p+|g|_p
-   $$</li>
-</ol>
-<blockquote>
-<p>[!TIP]</p>
+</div>
+</li>
+<li>
+<p><strong>Minkowski's Inequality</strong>
+    $$
+    |f+g|_p\leq|f|_p+|g|_p
+    $$</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <ol>
 <li>
 <p><span class="arithmatex">\(p=1\)</span>或<span class="arithmatex">\(\infty\)</span>，证明是简单的，从略；</p>
 </li>
 <li>
 <p><span class="arithmatex">\(1&lt;q&lt;\infty\)</span>，则有
-   $$
-   \int_E|f(x)+g(x)|^p\text{d}x=\int_E|f(x)+g(x)|^{p-1}|f(x)+g(x)|\text{d}x\
-   \leq\int_E|f(x)+g(x)|^{p-1}|f(x)|\text{d}x+\int_E|f(x)+g(x)|^{p-1}|g(x)|\text{d}x
-   $$
-   现在将Hölder不等式分别用于上式右端两个积分，对第一个积分
-   $$
-   \int_E|f(x)+g(x)|^{p-1}|f(x)|\text{d}x\leq|f|_p\cdot ||f+g|^{p-1}|_q=|f|_p|f+g|_p^{p-1}
-   $$
-   同理，对第二个积分
-   $$
-   \int_E|f(x)+g(x)|^{p-1}|g(x)|\text{d}x\leq|g|_p\cdot ||f+g|^{p-1}|_q=|g|_p|f+g|_p^{p-1}
-   $$
-   将上面两不等式代入前式，即
-   $$
-   |f+g|_p^p\leq|f+g|_p^{p-1}(|f|_p+|g|_p)
-   $$
-   不妨设<span class="arithmatex">\(\|f+g\|_p\neq 0\)</span>，上式两端除以<span class="arithmatex">\(\|f+g\|_p^{p-1}\)</span>，即得三角不等式。</p>
+$$
+\int_E|f(x)+g(x)|^p\text{d}x=\int_E|f(x)+g(x)|^{p-1}|f(x)+g(x)|\text{d}x\\
+\leq\int_E|f(x)+g(x)|^{p-1}|f(x)|\text{d}x+\int_E|f(x)+g(x)|^{p-1}|g(x)|\text{d}x
+$$
+现在将Hölder不等式分别用于上式右端两个积分，对第一个积分
+$$
+\int_E|f(x)+g(x)|^{p-1}|f(x)|\text{d}x\leq|f|_p\cdot ||f+g|^{p-1}|_q=|f|_p|f+g|_p^{p-1}
+$$
+同理，对第二个积分
+$$
+\int_E|f(x)+g(x)|^{p-1}|g(x)|\text{d}x\leq|g|_p\cdot ||f+g|^{p-1}|_q=|g|_p|f+g|_p^{p-1}
+$$
+将上面两不等式代入前式，即
+$$
+|f+g|_p^p\leq|f+g|_p^{p-1}(|f|_p+|g|_p)
+$$
+不妨设<span class="arithmatex">\(\|f+g\|_p\neq 0\)</span>，上式两端除以<span class="arithmatex">\(\|f+g\|_p^{p-1}\)</span>，即得三角不等式。</p>
 </li>
 </ol>
-</blockquote>
+</div>
+</li>
+</ol>
 <h3 id="basics">Basics</h3>
 <ul>
 <li>
 <p>若<span class="arithmatex">\(m(E)&lt;\infty\)</span>，则</p>
+<ol>
+<li>当<span class="arithmatex">\(p_1&lt;p_2\)</span>时，<span class="arithmatex">\(L^{p_2}(E)\subset L^{p_1}(E)\)</span>；</li>
+<li><span class="arithmatex">\(\underset{p\rightarrow\infty}{\text{lim}}\|f\|_p=\|f\|_{\infty}\)</span>.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ol>
+<li>
+<p>若<span class="arithmatex">\(p_2=\infty\)</span>，显然有<span class="arithmatex">\(L^{\infty}(E)\subset L^{p_1}(E)\)</span>：
+若<span class="arithmatex">\(p_1&lt;p_2&lt;\infty\)</span>，令<span class="arithmatex">\(r=p_2/p_1\)</span>，<span class="arithmatex">\(r&gt;1\)</span>，记<span class="arithmatex">\(r^{\prime}\)</span>为<span class="arithmatex">\(r\)</span>的共轭指数，则由Hölder's Inequality，得</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\int_{E}|f(x)|^{p_1}\text{d}x&amp;=\int_{E}|f(x)|^{p_1}\cdot 1\text{d}x\\\\
+&amp;\leq\left(\int_{E}|f(x)|^{p_1r}\text{d}x\right)^{\frac{1}{r}}\left(\int_{E}1^{r^{\prime}}\text{d}x\right)^{\frac{1}{r^{\prime}}}\\\\
+&amp;=m(E)^{\frac{1}{r^{\prime}}}\left(\int_{E}|f(x)|^{p_2}\text{d}x\right)^{\frac{p_1}{p_2}}\\\\
+\Rightarrow \|f\|_{p_1}&amp;\leq m(E)^{\frac{1}{p_1}-\frac{1}{p_2}}\|f\|_{p_2}
+\end{aligned}
+\]</div>
+<p>只要<span class="arithmatex">\(f\in L^{p_2}(E)\)</span>，<span class="arithmatex">\(\|f\|_{p_2}&lt;\infty\)</span>，则<span class="arithmatex">\(\|f\|_{p_1}&lt;\infty\)</span>，从而<span class="arithmatex">\(f\in L^{p_1}(E)\)</span>，证得<span class="arithmatex">\(L^{p_2}(E)\subset L^{p_1}(E)\)</span>.</p>
 </li>
 <li>
-<p>当<span class="arithmatex">\(p_1&lt;p_2\)</span>时，<span class="arithmatex">\(L^{p_2}(E)\subset L^{p_1}(E)\)</span>；</p>
+<p>记<span class="arithmatex">\(M=\|f\|_{\infty}\)</span>，则
+    $$
+    |f|_p\leq\left(\int_E M^p\text{d}x\right)^{\frac{1}{p}}\\
+    \Rightarrow \underset{p\rightarrow \infty}{\overline{{\text{lim}}}}|f|_p\leq M
+    $$</p>
 </li>
-<li><span class="arithmatex">\(\underset{p\rightarrow\infty}{\text{lim}}\|f\|_p=\|f\|_{\infty}\)</span>.</li>
+</ol>
+</div>
+</li>
 </ul>
-<blockquote>
-<p>[!TIP]</p>
-<ol>
-<li>若<span class="arithmatex">\(p_2=\infty\)</span>，显然有<span class="arithmatex">\(L^{\infty}(E)\subset L^{p_1}(E)\)</span>；</li>
-</ol>
-<p>若<span class="arithmatex">\(p_1&lt;p_2&lt;\infty\)</span>，令<span class="arithmatex">\(r=p_2/p_1\)</span>，<span class="arithmatex">\(r&gt;1\)</span>，记<span class="arithmatex">\(r^{\prime}\)</span>为<span class="arithmatex">\(r\)</span>的共轭指数，则由Hölder's Inequality，得
-   $$
-   \begin{aligned}
-   \int_{E}|f(x)|^{p_1}\text{d}x&amp;=\int_{E}|f(x)|^{p_1}\cdot 1\text{d}x\
-   &amp;\leq\left(\int_{E}|f(x)|^{p_1r}\text{d}x\right)^{\frac{1}{r}}\left(\int_{E}1^{r^{\prime}}\text{d}x\right)^{\frac{1}{r^{\prime}}}\
-   &amp;=m(E)^{\frac{1}{r^{\prime}}}\left(\int_{E}|f(x)|^{p_2}\text{d}x\right)^{\frac{p_1}{p_2}}\
-   \Rightarrow |f|<em>{p_1}&amp;\leq m(E)^{\frac{1}{p_1}-\frac{1}{p_2}}|f|</em>{p_2}
-   \end{aligned}
-   $$
-   只要<span class="arithmatex">\(f\in L^{p_2}(E)\)</span>，<span class="arithmatex">\(\|f\|_{p_2}&lt;\infty\)</span>，则<span class="arithmatex">\(\|f\|_{p_1}&lt;\infty\)</span>，从而<span class="arithmatex">\(f\in L^{p_1}(E)\)</span>，证得<span class="arithmatex">\(L^{p_2}(E)\subset L^{p_1}(E)\)</span>.</p>
-<ol>
-<li>记<span class="arithmatex">\(M=\|f\|_{\infty}\)</span>，则
-   $$
-   |f|_p\leq\left(\int_E M^p\text{d}x\right)^{\frac{1}{p}}\
-   \Rightarrow \underset{p\rightarrow \infty}{\overline{{\text{lim}}}}|f|_p\leq M
-   $$
-   近代应用数学</li>
-</ol>
-</blockquote>
 <h2 id="_4">卷积</h2>
 <h3 id="definition_1">Definition</h3>
 <ul>
 <li><span class="arithmatex">\(f(x)\)</span>，<span class="arithmatex">\(g(x)\)</span>是<span class="arithmatex">\(\mathbb{R}\)</span>上的可测函数，若积分
-  $$
-  \int_{\mathbb{R}^n}f(x-y)g(y)\text{d}y
-  $$
-  存在，则称此积分为函数<span class="arithmatex">\(f\)</span>与<span class="arithmatex">\(g\)</span>的卷积，记为<span class="arithmatex">\(f*g(x)\)</span>.</li>
+    $$
+    \int_{\mathbb{R}^n}f(x-y)g(y)\text{d}y
+    $$
+    存在，则称此积分为函数<span class="arithmatex">\(f\)</span>与<span class="arithmatex">\(g\)</span>的卷积，记为<span class="arithmatex">\(f*g(x)\)</span>.</li>
 </ul>
 <h3 id="_5">运算律</h3>
 <ul>
-<li>交换律
-  $$
-  f<em>g=g</em>f
-  $$</li>
-</ul>
-<blockquote>
-<p>[!TIP]</p>
-<p><strong>证明：</strong>以<span class="arithmatex">\(\mathbb{R}\)</span>为例，有
-$$
-f<em>g=\int_{-\infty}^{\infty}f(x-y)g(y)\text{d}y
-$$
-令<span class="arithmatex">\(x-y=t\)</span>，<span class="arithmatex">\(y=x-t\)</span>，<span class="arithmatex">\(y\)</span>从<span class="arithmatex">\(-\infty\)</span>积分到<span class="arithmatex">\(+\infty\)</span>，相应的<span class="arithmatex">\(t\)</span>从<span class="arithmatex">\(\infty\)</span>积分到<span class="arithmatex">\(-\infty\)</span>，所以
-$$
+<li>
+<p>交换律</p>
+<div class="arithmatex">\[
+f*g=g*f
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>证明：</strong>以<span class="arithmatex">\(\mathbb{R}\)</span>为例，有</p>
+<div class="arithmatex">\[
+f*g=\int_{-\infty}^{\infty}f(x-y)g(y)\text{d}y
+\]</div>
+<p>令<span class="arithmatex">\(x-y=t\)</span>，<span class="arithmatex">\(y=x-t\)</span>，<span class="arithmatex">\(y\)</span>从<span class="arithmatex">\(-\infty\)</span>积分到<span class="arithmatex">\(+\infty\)</span>，相应的<span class="arithmatex">\(t\)</span>从<span class="arithmatex">\(\infty\)</span>积分到<span class="arithmatex">\(-\infty\)</span>，所以</p>
+<div class="arithmatex">\[
 \begin{aligned}
-f</em>g=&amp;\int_{-\infty}^{\infty}f(x-y)g(y)\text{d}y\
-=&amp;\int_{\infty}^{-\infty}f(t)g(x-t)\text{d}(x-t)\
-=&amp;\int_{-\infty}^{\infty}f(t)g(x-t)\text{d}t\
+f*g=&amp;\int_{-\infty}^{\infty}f(x-y)g(y)\text{d}y\\\\
+=&amp;\int_{\infty}^{-\infty}f(t)g(x-t)\text{d}(x-t)\\\\
+=&amp;\int_{-\infty}^{\infty}f(t)g(x-t)\text{d}t\\\\
 =&amp;g*f
 \end{aligned}
-$$</p>
-</blockquote>
-<ul>
-<li>结合律
-  $$
-  f<em>(g</em>h)=(f<em>g)</em>h
-  $$</li>
+\]</div>
+</div>
+</li>
+<li>
+<p>结合律</p>
+<div class="arithmatex">\[
+f*(g*h)=(f*g)*h
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>证明是作业题，本题中默认<span class="arithmatex">\(f,g,h\in L^1\)</span>，所以</p>
+<div class="arithmatex">\[
+\begin{aligned}
+f*(g*h)=&amp;\int_{-\infty}^{\infty}f(x-y)(g*h)(y)\text{d}y\\\\
+=&amp;\int_{-\infty}^{\infty}f(x-y)\left(\int_{-\infty}^{\infty}g(y-z)h(z)\text{d}z\right)\text{d}y\\\\
+=&amp;\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x-y)g(y-z)h(z)\text{d}z\text{d}y\\\\
+=&amp;\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x-y)g(y-z)h(z)\text{d}y\text{d}z\\\\
+=&amp;\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}f(x-y)g(y-z)\text{d}y\right)h(z)\text{d}z\\\\
+\end{aligned}
+\]</div>
+<p>令<span class="arithmatex">\(y-z=t\)</span>，<span class="arithmatex">\(y=z+t\)</span>，内层积分中<span class="arithmatex">\(y\)</span>从<span class="arithmatex">\(-\infty\)</span>积分到<span class="arithmatex">\(\infty\)</span>，所以<span class="arithmatex">\(t\)</span>从<span class="arithmatex">\(-\infty\)</span>积分到<span class="arithmatex">\(\infty\)</span>，那么</p>
+<div class="arithmatex">\[
+\begin{aligned}
+f*(g*h)=&amp;\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}f(x-y)g(y-z)\text{d}y\right)h(z)\text{d}z\\\\
+=&amp;\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}f(x-z-t)g(t)\text{d}t\right)h(z)\text{d}z\\\\
+=&amp;\int_{-\infty}^{\infty}(f*g)(x-z)h(z)\text{d}z\\\\
+=&amp;(f*g)*h
+\end{aligned}
+\]</div>
+</div>
+</li>
 </ul>
-<blockquote>
-<p>[!TIP]</p>
-<p>证明是作业题，本题中默认<span class="arithmatex">\(f,g,h\in L^1\)</span>，所以
-$$
-\begin{aligned}
-f<em>(g</em>h)=&amp;\int_{-\infty}^{\infty}f(x-y)(g<em>h)(y)\text{d}y\
-=&amp;\int_{-\infty}^{\infty}f(x-y)\left(\int_{-\infty}^{\infty}g(y-z)h(z)\text{d}z\right)\text{d}y\
-=&amp;\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x-y)g(y-z)h(z)\text{d}z\text{d}y\
-=&amp;\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x-y)g(y-z)h(z)\text{d}y\text{d}z\
-=&amp;\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}f(x-y)g(y-z)\text{d}y\right)h(z)\text{d}z\
-\end{aligned}
-$$
-令<span class="arithmatex">\(y-z=t\)</span>，<span class="arithmatex">\(y=z+t\)</span>，内层积分中<span class="arithmatex">\(y\)</span>从<span class="arithmatex">\(-\infty\)</span>积分到<span class="arithmatex">\(\infty\)</span>，所以<span class="arithmatex">\(t\)</span>从<span class="arithmatex">\(-\infty\)</span>积分到<span class="arithmatex">\(\infty\)</span>，那么
-$$
-\begin{aligned}
-f</em>(g<em>h)=&amp;\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}f(x-y)g(y-z)\text{d}y\right)h(z)\text{d}z\
-=&amp;\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}f(x-z-t)g(t)\text{d}t\right)h(z)\text{d}z\
-=&amp;\int_{-\infty}^{\infty}(f</em>g)(x-z)h(z)\text{d}z\
-=&amp;(f<em>g)</em>h
-\end{aligned}
-$$</p>
-</blockquote>
 <h3 id="properties">Properties</h3>
 <ul>
-<li><strong>Young's Inequality</strong></li>
-</ul>
+<li>
+<p><strong>Young's Inequality</strong></p>
 <p>若<span class="arithmatex">\(f\in L^p(\mathbb{R}^n),1\le p\le \infty\)</span>，<span class="arithmatex">\(g\in L^1(\mathbb{R}^n)\)</span>，则<span class="arithmatex">\(f*g\in L^p(\mathbb{R}^n)\)</span>，且
-  $$
-  |f*g|_p\le |f|_p|g|_1
-  $$</p>
+$$
+|f*g|_p\le |f|_p|g|_1
+$$</p>
 <blockquote>
 <p>如果从某种意义上说，<span class="arithmatex">\(L^p\)</span>的性质比<span class="arithmatex">\(L^1\)</span>要好一点（笔者个人不这么认为，笔者有限的知识看不出这个性质有什么好坏之分），那么卷积继承下来的是好的那一个。</p>
-<p>[!TIP]</p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p><strong>证明</strong></p>
 <blockquote>
 <p>注：以下所有的积分都是在整个<span class="arithmatex">\(\mathbb{R}^n\)</span>上的，此处省略不写</p>
 </blockquote>
 <ul>
-<li>
-<p><span class="arithmatex">\(p=\infty\)</span>时
-  $$
-  \begin{aligned}
-  |f*g(x)|=&amp;\Big|\int f(x-y)g(y)\text{d}y\Big|\
-  \le &amp;\int|f(x-y)g(y)|\text{d}y\
-  \le&amp;|f|<em>{\infty}\int|g(y)|\text{d}y\
-  \le&amp;|f|</em>{\infty}|g|_1
-  \end{aligned}
-  $$</p>
-</li>
-<li>
-<p><span class="arithmatex">\(1\le p&lt; \infty\)</span>
-  $$
-  \begin{aligned}
-  |f<em>g(x)|\le&amp;\int|f(x-y)||g(y)|\text{d}y\
-  =&amp;\int|f(x-y)||g(y)|^{\frac{1}{p}}|g(y)|^{1-\frac{1}{p}}\text{d}y\
-  \end{aligned}
-  $$
-  根据Hölder不等式
-  $$
-  \begin{aligned}
-  &amp;|fg|_1\le|f|_p|g|_q\
-  \Rightarrow&amp;\int|f(x)g(x)|\text{d}x\le\left(\int|f(x)|^p\text{d}x\right)^{\frac{1}{p}}\left(\int|g(x)|^q\text{d}x\right)^{\frac{1}{q}}
-  \end{aligned}
-  $$
-  其中<span class="arithmatex">\(p,q\)</span>是共轭数，也就是说<span class="arithmatex">\(q=\frac{p}{p-1}\)</span>，那么上式可以放缩
-  $$
-  \begin{aligned}
-  |f</em>g(x)|\le&amp;\int|f(x-y)||g(y)|^{\frac{1}{p}}|g(y)|^{1-\frac{1}{p}}\text{d}y\
-  \le&amp;\left(\int\left(|f(x-y)||g(y)|^{\frac{1}{p}}\right)^{p}\text{d}y\right)^{\frac{1}{p}}\left(\int|g(y)|^{(1-\frac{1}{p})\cdot\frac{p}{p-1}}\text{d}y\right)^{\frac{p-1}{p}}\
-  =&amp;\left(\int|f(x-y)|^p|g(y)|\text{d}y\right)^{\frac{1}{p}}\left(\int|g(y)|\text{d}y\right)^{\frac{p-1}{p}}\
-  \end{aligned}
-  $$
-  对上式两端作<span class="arithmatex">\(p\)</span>次乘方，再对<span class="arithmatex">\(x\)</span>积分，那么
-  $$
-  \begin{aligned}
-  \int|f<em>g(x)|^p\text{d}x\le&amp;\int\left(\left(\int|f(x-y)|^p|g(y)|\text{d}y\right)^{\frac{1}{p}}\left(\int|g(y)|\text{d}y\right)^{\frac{p-1}{p}}\right)^p\text{d}x\
-  =&amp;\int\left(\int|f(x-y)|^p|g(y)|\text{d}y\right)\left(\int|g(y)|\text{d}y\right)^{p-1}\text{d}x\
-  =&amp;\left(\int|g(y)|\text{d}y\right)^{p-1}\int\left(\int|f(x-y)|^p|g(y)|\text{d}y\right)\text{d}x\
-  =&amp;|g|_1^{p-1}\iint|f(x-y)|^p|g(y)|\text{d}y\text{d}x
-  \end{aligned}
-  $$
-  根据Fubini定理
-  $$
-  \begin{aligned}
-  \int|f</em>g(x)|^p\text{d}x\le&amp;|g|<em>1^{p-1}\iint|f(x-y)|^p|g(y)|\text{d}y\text{d}x\
-  =&amp;|g|_1^{p-1}\iint|f(x-y)|^p|g(y)|\text{d}x\text{d}y\
-  =&amp;|g|_1^{p-1}\int|g(y)|\left(\int|f(x-y)|^p\text{d}x\right)\text{d}y\
-  =&amp;|g|_1^{p-1}\int|g(y)||f|</em>{p}^p\text{d}y\
-  =&amp;|g|_1^{p-1}|f|_p^p\int|g(y)|\text{d}y\
-  =&amp;|g|_1^{p}|f|_p^p
-  \end{aligned}
-  $$
-  所以<span class="arithmatex">\(f*g\in L^p(\mathbb{R}^n)\)</span>，且<span class="arithmatex">\(\|f*g\|_p\le \|f\|_p\|g\|_1\)</span>。</p>
-</li>
+<li><span class="arithmatex">\(p=\infty\)</span>时</li>
 </ul>
-</blockquote>
+<div class="arithmatex">\[
+\begin{aligned}
+|f*g(x)|=&amp;\Big|\int f(x-y)g(y)\text{d}y\Big|\\\\
+\le &amp;\int|f(x-y)g(y)|\text{d}y\\\\
+\le&amp;\|f\|_{\infty}\int|g(y)|\text{d}y\\\\
+\le&amp;\|f\|_{\infty}\|g\|_1
+\end{aligned}
+\]</div>
 <ul>
-<li><strong>引理：平均连续性</strong></li>
+<li><span class="arithmatex">\(1\le p&lt; \infty\)</span></li>
 </ul>
+<div class="arithmatex">\[
+\begin{aligned}
+|f*g(x)|\le&amp;\int|f(x-y)||g(y)|\text{d}y\\\\
+=&amp;\int|f(x-y)||g(y)|^{\frac{1}{p}}|g(y)|^{1-\frac{1}{p}}\text{d}y\\\\
+\end{aligned}
+\]</div>
+<p>根据Hölder不等式</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\|fg\|_1\le\|f\|_p\|g\|_q\\\\
+\Rightarrow&amp;\int|f(x)g(x)|\text{d}x\le\left(\int|f(x)|^p\text{d}x\right)^{\frac{1}{p}}\left(\int|g(x)|^q\text{d}x\right)^{\frac{1}{q}}
+\end{aligned}
+\]</div>
+<p>其中<span class="arithmatex">\(p,q\)</span>是共轭数，也就是说<span class="arithmatex">\(q=\frac{p}{p-1}\)</span>，那么上式可以放缩</p>
+<div class="arithmatex">\[
+\begin{aligned}
+|f*g(x)|\le&amp;\int|f(x-y)||g(y)|^{\frac{1}{p}}|g(y)|^{1-\frac{1}{p}}\text{d}y\\\\
+\le&amp;\left(\int\left(|f(x-y)||g(y)|^{\frac{1}{p}}\right)^{p}\text{d}y\right)^{\frac{1}{p}}\left(\int|g(y)|^{(1-\frac{1}{p})\cdot\frac{p}{p-1}}\text{d}y\right)^{\frac{p-1}{p}}\\\\
+=&amp;\left(\int|f(x-y)|^p|g(y)|\text{d}y\right)^{\frac{1}{p}}\left(\int|g(y)|\text{d}y\right)^{\frac{p-1}{p}}\\\\
+\end{aligned}
+\]</div>
+<p>对上式两端作<span class="arithmatex">\(p\)</span>次乘方，再对<span class="arithmatex">\(x\)</span>积分，那么</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\int|f*g(x)|^p\text{d}x\le&amp;\int\left(\left(\int|f(x-y)|^p|g(y)|\text{d}y\right)^{\frac{1}{p}}\left(\int|g(y)|\text{d}y\right)^{\frac{p-1}{p}}\right)^p\text{d}x\\\\
+=&amp;\int\left(\int|f(x-y)|^p|g(y)|\text{d}y\right)\left(\int|g(y)|\text{d}y\right)^{p-1}\text{d}x\\\\
+=&amp;\left(\int|g(y)|\text{d}y\right)^{p-1}\int\left(\int|f(x-y)|^p|g(y)|\text{d}y\right)\text{d}x\\\\
+=&amp;\|g\|_1^{p-1}\iint|f(x-y)|^p|g(y)|\text{d}y\text{d}x
+\end{aligned}
+\]</div>
+<p>根据Fubini定理</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\int|f*g(x)|^p\text{d}x\le&amp;\|g\|_1^{p-1}\iint|f(x-y)|^p|g(y)|\text{d}y\text{d}x\\\\
+=&amp;\|g\|_1^{p-1}\iint|f(x-y)|^p|g(y)|\text{d}x\text{d}y\\\\
+=&amp;\|g\|_1^{p-1}\int|g(y)|\left(\int|f(x-y)|^p\text{d}x\right)\text{d}y\\\\
+=&amp;\|g\|_1^{p-1}\int|g(y)|\|f\|_{p}^p\text{d}y\\\\
+=&amp;\|g\|_1^{p-1}\|f\|_p^p\int|g(y)|\text{d}y\\\\
+=&amp;\|g\|_1^{p}\|f\|_p^p
+\end{aligned}
+\]</div>
+<p>所以<span class="arithmatex">\(f*g\in L^p(\mathbb{R}^n)\)</span>，且<span class="arithmatex">\(\|f*g\|_p\le \|f\|_p\|g\|_1\)</span>。</p>
+</div>
+</li>
+<li>
+<p><strong>引理：平均连续性</strong></p>
 <p>若<span class="arithmatex">\(f\in L^p(\mathbb{R}^n),1\le p&lt;\infty\)</span>，则有
-  $$
-  \underset{t\rightarrow 0}{\text{lim}}\int_{\mathbb{R}^n}|f(x+t)-f(x)|^p\text{d}x=0
-  $$</p>
-<blockquote>
-<p>[!NOTE]</p>
+$$
+\underset{t\rightarrow 0}{\text{lim}}\int_{\mathbb{R}^n}|f(x+t)-f(x)|^p\text{d}x=0
+$$</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>证明过程略，简要提一下就是，回顾之前的一个定理，首先考虑如下集合：
 $$
 C_c(\mathbb{R}^n)={f\in C(\mathbb{R}^n)|\exist\text{紧集}A\sub\mathbb{R}^n,f|_{\mathbb{R}^n\backslash A}=0}
 $$
 称<span class="arithmatex">\(f\in C_c(\mathbb{R}^n)\)</span>为有紧支集的连续函数。</p>
 <p><strong>定理：</strong>设<span class="arithmatex">\(E\sub \mathbb{R}^n\)</span>是可测集，则每个<span class="arithmatex">\(f\in L^p(E)\)</span>，可用<span class="arithmatex">\(C_c(\mathbb{R}^n)\)</span>中的函数在<span class="arithmatex">\(E\)</span>上<span class="arithmatex">\(L^p\)</span>逼近。</p>
-</blockquote>
-<ul>
-<li><strong>有界连续性</strong></li>
-</ul>
+</div>
+</li>
+<li>
+<p><strong>有界连续性</strong></p>
 <p>如果<span class="arithmatex">\(f\in L^p,g\in L^q,1\le p\le \infty\)</span>，那么<span class="arithmatex">\(f*g\)</span>是有界连续函数。</p>
-<blockquote>
-<p>[!TIP]</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p><strong>证明</strong></p>
 <ul>
-<li>有界</li>
+<li>
+<p>有界</p>
+<p>根据Hölder不等式，有</p>
+<div class="arithmatex">\[
+\begin{aligned}
+|f*g(x)|\le&amp;\int_{\mathbb{R}}|f(x-y)g(y)|\text{d}y\\\\
+\le&amp; \left(\int_{\mathbb{R}}|f(x-y)|^p\text{d}y\right)^{\frac{1}{p}}\left(\int_{\mathbb{R}}|g(y)|^q\text{d}y\right)^{\frac{1}{q}}\\\\
+=&amp;\|f\|_p\|g\|_q
+\end{aligned}
+\]</div>
+</li>
+<li>
+<p>连续性</p>
+<p>不妨先设<span class="arithmatex">\(p&lt;\infty\)</span>，如果<span class="arithmatex">\(p=\infty\)</span>，那么<span class="arithmatex">\(q=1\)</span>，此时可交换<span class="arithmatex">\(f\)</span>和<span class="arithmatex">\(g\)</span>的顺序，然后用相同的方式处理</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;|(f*g)(x+h)-(f*g)(x)|\\\\
+=&amp;|\int_{\mathbb{R}}f(x+h-y)g(y)\text{d}y-\int_{\mathbb{R}}f(x-y)g(y)\text{d}y|\\\\
+\le&amp;\int_{\mathbb{R}}|f(x+h-y)-f(x-y)|\cdot|g(y)|\text{d}y\\\\
+\le&amp;\|g\|_{q}\left(\int_{\mathbb{R}}|f(x+h-y)-f(x-y)|^{p}\text{d}y\right)^{\frac{1}{p}}
+\end{aligned}
+\]</div>
+<p>根据平均连续性引理：若<span class="arithmatex">\(f\in L^p(\mathbb{R}^n),1\le p&lt;\infty\)</span>，则有<span class="arithmatex">\(\underset{t\rightarrow 0}{\text{lim}}\int_{\mathbb{R}^n}|f(x+t)-f(x)|^p\text{d}x=0\)</span>，那么</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\underset{h\rightarrow 0}{\text{lim}}\int_{\mathbb{R}^n}|f(x+h-y)-f(x-y)|^p\text{d}y=0\\\\
+\Rightarrow&amp;\underset{h\rightarrow 0}{\text{lim}}\hspace{0.1cm}\|g\|_{q}\left(\int_{\mathbb{R}^n}|f(x+h-y)-f(x-y)|^p\text{d}y\right)^{\frac{1}{p}}=0\\\\
+\Rightarrow&amp;\underset{h\rightarrow 0}{\text{lim}}\hspace{0.1cm}|(f*g)(x+h)-(f*g)(x)|=0
+\end{aligned}
+\]</div>
+<p>连续性得证，故<span class="arithmatex">\(f*g\)</span>是有界连续函数。</p>
+</li>
 </ul>
-<p>根据Hölder不等式，有
-  $$
-  \begin{aligned}
-  |f*g(x)|\le&amp;\int_{\mathbb{R}}|f(x-y)g(y)|\text{d}y\
-  \le&amp; \left(\int_{\mathbb{R}}|f(x-y)|^p\text{d}y\right)^{\frac{1}{p}}\left(\int_{\mathbb{R}}|g(y)|^q\text{d}y\right)^{\frac{1}{q}}\
-  =&amp;|f|_p|g|_q
-  \end{aligned}
-  $$</p>
-<ul>
-<li>连续性</li>
-</ul>
-<p>不妨先设<span class="arithmatex">\(p&lt;\infty\)</span>，如果<span class="arithmatex">\(p=\infty\)</span>，那么<span class="arithmatex">\(q=1\)</span>，此时可交换<span class="arithmatex">\(f\)</span>和<span class="arithmatex">\(g\)</span>的顺序，然后用相同的方式处理
-  $$
-  \begin{aligned}
-  &amp;|(f<em>g)(x+h)-(f</em>g)(x)|\
-  =&amp;|\int_{\mathbb{R}}f(x+h-y)g(y)\text{d}y-\int_{\mathbb{R}}f(x-y)g(y)\text{d}y|\
-  \le&amp;\int_{\mathbb{R}}|f(x+h-y)-f(x-y)|\cdot|g(y)|\text{d}y\
-  \le&amp;|g|<em>{q}\left(\int</em>{\mathbb{R}}|f(x+h-y)-f(x-y)|^{p}\text{d}y\right)^{\frac{1}{p}}
-  \end{aligned}
-  $$
-  根据平均连续性引理：若<span class="arithmatex">\(f\in L^p(\mathbb{R}^n),1\le p&lt;\infty\)</span>，则有<span class="arithmatex">\(\underset{t\rightarrow 0}{\text{lim}}\int_{\mathbb{R}^n}|f(x+t)-f(x)|^p\text{d}x=0\)</span>，那么
-  $$
-  \begin{aligned}
-  &amp;\underset{h\rightarrow 0}{\text{lim}}\int_{\mathbb{R}^n}|f(x+h-y)-f(x-y)|^p\text{d}y=0\
-  \Rightarrow&amp;\underset{h\rightarrow 0}{\text{lim}}\hspace{0.1cm}|g|<em>{q}\left(\int</em>{\mathbb{R}^n}|f(x+h-y)-f(x-y)|^p\text{d}y\right)^{\frac{1}{p}}=0\
-  \Rightarrow&amp;\underset{h\rightarrow 0}{\text{lim}}\hspace{0.1cm}|(f<em>g)(x+h)-(f</em>g)(x)|=0
-  \end{aligned}
-  $$
-  连续性得证，故<span class="arithmatex">\(f*g\)</span>是有界连续函数。
-</p>
-</blockquote>
-<ul>
+</div>
+</li>
 <li>
 <p><strong>光滑性&amp;可积性</strong></p>
-</li>
+<ul>
 <li>
 <p><span class="arithmatex">\(f\in C_c(\mathbb{R}),g\in L^p\)</span>，那么<span class="arithmatex">\(f*g\in C(\mathbb{R})\)</span>，since <span class="arithmatex">\(C_c(\mathbb{R})\sub L^p\)</span>；</p>
 <blockquote>
 <p>紧支集（如果实在不知道是什么就想象成闭区间吧）上的连续函数一致连续<span class="arithmatex">\(\Rightarrow\)</span>一定有界<span class="arithmatex">\(\Rightarrow\)</span>一定可积</p>
-<p>[!TIP]</p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p><strong>证明</strong></p>
 <p>我们首先回顾一个定义&amp;一个定理</p>
 <ul>
-<li>
-<p>定义：设<span class="arithmatex">\(E\)</span>是<span class="arithmatex">\(n\)</span>维可测集，又设<span class="arithmatex">\(f_m\in L^p(E),m=1,2,...\)</span>，若存在<span class="arithmatex">\(f\in L^p(E)\)</span>，使得
-  $$
-  \underset{m\rightarrow \infty}{\text{lim}}|f_m-f|_p=0
-  $$
-  则称函数列<span class="arithmatex">\(\{f_m\}\)</span>依<span class="arithmatex">\(L^p\)</span>的意义收敛于函数<span class="arithmatex">\(f\)</span>，记作<span class="arithmatex">\(f_m\overset{L^p}{\longrightarrow}f\)</span>。</p>
-</li>
-<li>
-<p>控制收敛定理：设<span class="arithmatex">\(E\)</span>是<span class="arithmatex">\(n\)</span>维可测集，<span class="arithmatex">\(f,f_m\)</span>是<span class="arithmatex">\(E\)</span>上的可测函数，<span class="arithmatex">\(m=1,2,...\)</span>，而且<span class="arithmatex">\(f_m\rightarrow f,\text{a.e.}[E]\)</span>或<span class="arithmatex">\(\{f_m\}\)</span>依测度收敛到<span class="arithmatex">\(f\)</span>，若
-  $$
-  \exist\hspace{0.2cm} g\in L^p(E),\hspace{0.5cm}1\le p&lt;\infty
-  $$
-  使得
-  $$
-  |f_m(x)|\le g(x),\text{a.e.}[E],\hspace{0.3cm}m=1,2,...
-  $$
-  则<span class="arithmatex">\(f_m\overset{L^p}{\longrightarrow}f\)</span>。</p>
-</li>
+<li>定义：设<span class="arithmatex">\(E\)</span>是<span class="arithmatex">\(n\)</span>维可测集，又设<span class="arithmatex">\(f_m\in L^p(E),m=1,2,...\)</span>，若存在<span class="arithmatex">\(f\in L^p(E)\)</span>，使得</li>
 </ul>
-<p>设<span class="arithmatex">\(f\)</span>的紧支集<span class="arithmatex">\(\text{supp}(f)\sub[-N,N]\)</span>，目标是证明
-$$
+<div class="arithmatex">\[
+\underset{m\rightarrow \infty}{\text{lim}}\|f_m-f\|_p=0
+\]</div>
+<p>则称函数列<span class="arithmatex">\(\{f_m\}\)</span>依<span class="arithmatex">\(L^p\)</span>的意义收敛于函数<span class="arithmatex">\(f\)</span>，记作<span class="arithmatex">\(f_m\overset{L^p}{\longrightarrow}f\)</span>。</p>
+<ul>
+<li>控制收敛定理：设<span class="arithmatex">\(E\)</span>是<span class="arithmatex">\(n\)</span>维可测集，<span class="arithmatex">\(f,f_m\)</span>是<span class="arithmatex">\(E\)</span>上的可测函数，<span class="arithmatex">\(m=1,2,...\)</span>，而且<span class="arithmatex">\(f_m\rightarrow f,\text{a.e.}[E]\)</span>或<span class="arithmatex">\(\{f_m\}\)</span>依测度收敛到<span class="arithmatex">\(f\)</span>，若</li>
+</ul>
+<div class="arithmatex">\[
+\exist\hspace{0.2cm} g\in L^p(E),\hspace{0.5cm}1\le p&lt;\infty
+\]</div>
+<p>使得</p>
+<div class="arithmatex">\[
+|f_m(x)|\le g(x),\text{a.e.}[E],\hspace{0.3cm}m=1,2,...
+\]</div>
+<p>则<span class="arithmatex">\(f_m\overset{L^p}{\longrightarrow}f\)</span>。</p>
+<p>设<span class="arithmatex">\(f\)</span>的紧支集<span class="arithmatex">\(\text{supp}(f)\sub[-N,N]\)</span>，目标是证明</p>
+<div class="arithmatex">\[
 \underset{h\rightarrow 0}{\text{lim}}\int_{\mathbb{R}}\left(f(x_0+h-y)-f(x_0-y)\right)g(y)\text{d}y=0,\hspace{0.2cm}\forall x_0\in\mathbb{R}
-$$
-不妨先假设<span class="arithmatex">\(|h|&lt;1\)</span>，如果<span class="arithmatex">\(|y|&gt;N+|x_0|+1\)</span>，<span class="arithmatex">\(|x_0+h-y|\ge|y|-|x_0|-h&gt;N\)</span>，从而有
-$$
+\]</div>
+<p>不妨先假设<span class="arithmatex">\(|h|&lt;1\)</span>，如果<span class="arithmatex">\(|y|&gt;N+|x_0|+1\)</span>，<span class="arithmatex">\(|x_0+h-y|\ge|y|-|x_0|-h&gt;N\)</span>，从而有</p>
+<div class="arithmatex">\[
 \begin{aligned}
-&amp;|\int_{\mathbb{R}}[f(x_0+h-y)-f(x_0-y)]g(y)\text{d}y|\
-\le&amp;\int_{\mathbb{R}}|f(x_0+h-y)-f(x_0-y)|\cdot|g(y)|\text{d}y\
-\le&amp;\int_{-N-|x_0|-1}^{N+|x_0|+1}|f(x_0+h-y)-f(x_0-y)|\cdot|g(y)|\text{d}y\
+&amp;|\int_{\mathbb{R}}[f(x_0+h-y)-f(x_0-y)]g(y)\text{d}y|\\\\
+\le&amp;\int_{\mathbb{R}}|f(x_0+h-y)-f(x_0-y)|\cdot|g(y)|\text{d}y\\\\
+\le&amp;\int_{-N-|x_0|-1}^{N+|x_0|+1}|f(x_0+h-y)-f(x_0-y)|\cdot|g(y)|\text{d}y\\\\
 \end{aligned}
-$$
-令<span class="arithmatex">\(A=N+|x_0|+1\)</span>，上式可进一步写作
-$$
+\]</div>
+<p>令<span class="arithmatex">\(A=N+|x_0|+1\)</span>，上式可进一步写作</p>
+<div class="arithmatex">\[
 \begin{aligned}
-&amp;\int|f(x_0+h-y)-f(x_0-y)|\cdot|g(y)|\cdot\chi_{[-A,A]}\text{d}y\
-\le&amp;\int(|f(x_0+h-y)|+|f(x_0-y)|)\cdot|g(y)|\cdot\chi_{[-A,A]}\text{d}y\
-\le&amp;\int2|f|<em>{\infty}\cdot|g(y)|\cdot\chi</em>{[-A,A]}\text{d}y\
+&amp;\int|f(x_0+h-y)-f(x_0-y)|\cdot|g(y)|\cdot\chi_{[-A,A]}\text{d}y\\\\
+\le&amp;\int(|f(x_0+h-y)|+|f(x_0-y)|)\cdot|g(y)|\cdot\chi_{[-A,A]}\text{d}y\\\\
+\le&amp;\int2\|f\|_{\infty}\cdot|g(y)|\cdot\chi_{[-A,A]}\text{d}y\\\\
 \end{aligned}
-$$
-由于<span class="arithmatex">\(2\|f\|_{\infty}\cdot|g(y)|\cdot\chi_{[-A,A]}\in L^p\sub L^1\)</span>（有限集上），根据L.C.D.T，有
-$$
+\]</div>
+<p>由于<span class="arithmatex">\(2\|f\|_{\infty}\cdot|g(y)|\cdot\chi_{[-A,A]}\in L^p\sub L^1\)</span>（有限集上），根据L.C.D.T，有</p>
+<div class="arithmatex">\[
 \underset{h\rightarrow 0}{\text{lim}}\int_{\mathbb{R}}\left(f(x_0+h-y)-f(x_0-y)\right)g(y)\text{d}y=0,\hspace{0.2cm}\forall x_0\in\mathbb{R}
-$$</p>
+\]</div>
 <blockquote>
 <p>这里的<span class="arithmatex">\(f_m(y)=(f(x_0+h(m)-y)-f(x_0-y))g(y)\)</span>，<span class="arithmatex">\(f=0\)</span>，另一种视角是将<span class="arithmatex">\(f_m\)</span>视为<span class="arithmatex">\(f(x_0+h(m)-y)g(y)\)</span>，<span class="arithmatex">\(f\)</span>看作<span class="arithmatex">\(f(x_0-y)g(y)\)</span>，放缩时只需要放到<span class="arithmatex">\(1\)</span>倍的<span class="arithmatex">\(\|f\|_{\infty}\)</span>就可以了，同样可证得。</p>
 </blockquote>
-</blockquote>
+</div>
 </li>
 <li>
 <p><span class="arithmatex">\(f\in C_c^1,g\in L^p\Rightarrow f*g\in C^1\cap L^p\)</span>；</p>
 <blockquote>
 <p>注意这里<span class="arithmatex">\(C_c^1\)</span>的含义是紧支集上的一阶连续可导函数，<span class="arithmatex">\(C^1\)</span>是一阶连续可导函数</p>
-<p>[!TIP]</p>
-<p>证明思路同上，也是用控制收敛定理，具体的放缩控制部分如下：
-$$
-\begin{aligned}
-&amp;\underset{h\rightarrow 0}{\text{lim}}\frac{f<em>g(x_0+h)-f</em>g(x_0)}{h}\
-=&amp;\underset{h\rightarrow 0}{\text{lim}}\int_{\mathbb{R}}\left[\frac{f(x_0+h-y)-f(x_0-y)}{h}\right]g(y)\text{d}y\
-\end{aligned}
-$$
-其中
-$$
-\left[\frac{f(x_0+h-y)-f(x_0-y)}{h}\right]g(y)\le|f^{\prime}|<em>{\infty}|g(y)|\chi</em>{[-A,A]}
-$$</p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>证明思路同上，也是用控制收敛定理，具体的放缩控制部分如下：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\underset{h\rightarrow 0}{\text{lim}}\frac{f*g(x_0+h)-f*g(x_0)}{h}\\\\
+=&amp;\underset{h\rightarrow 0}{\text{lim}}\int_{\mathbb{R}}\left[\frac{f(x_0+h-y)-f(x_0-y)}{h}\right]g(y)\text{d}y\\\\
+\end{aligned}
+\]</div>
+<p>其中</p>
+<div class="arithmatex">\[
+\left[\frac{f(x_0+h-y)-f(x_0-y)}{h}\right]g(y)\le\|f^{\prime}\|_{\infty}|g(y)|\chi_{[-A,A]}
+\]</div>
+</div>
 </li>
 <li>
 <p><span class="arithmatex">\(f\in C_c^{\infty},g\in L^p\Rightarrow f*g\in C^{\infty}\cap L^p\)</span></p>
@@ -2594,215 +2617,213 @@ $$</p>
 <p><span class="arithmatex">\(C_c^{\infty}\)</span>表示紧支集上的无穷阶导数依然连续的函数，<span class="arithmatex">\(C^{\infty}\)</span>是无穷阶导数依然连续的函数</p>
 </blockquote>
 </li>
+</ul>
+</li>
 <li>
 <p><strong>恒等逼近</strong></p>
+<ul>
+<li>
+<p><strong>定义：</strong>设<span class="arithmatex">\(\varphi(x)\)</span>是定义在<span class="arithmatex">\(\mathbb{R}^n\)</span>上的函数，对于任意的常数<span class="arithmatex">\(\varepsilon&gt;0\)</span>，记</p>
+<div class="arithmatex">\[
+\varphi_{\varepsilon}(x)=\varepsilon^{-n}\varphi\left(\frac{x}{\varepsilon}\right)
+\]</div>
 </li>
 <li>
-<p><strong>定义：</strong>设<span class="arithmatex">\(\varphi(x)\)</span>是定义在<span class="arithmatex">\(\mathbb{R}^n\)</span>上的函数，对于任意的常数<span class="arithmatex">\(\varepsilon&gt;0\)</span>，记
-    $$
-    \varphi_{\varepsilon}(x)=\varepsilon^{-n}\varphi\left(\frac{x}{\varepsilon}\right)
-    $$</p>
+<p><strong>定理：</strong>设非负函数<span class="arithmatex">\(\varphi(x)\in L^1(\mathbb{R}^n)\)</span>，且<span class="arithmatex">\(\|\varphi\|_1=1\)</span>。若</p>
+<div class="arithmatex">\[
+f\in L^p(\mathbb{R}^n),\quad 1\le p&lt;\infty
+\]</div>
+<p>则有</p>
+<div class="arithmatex">\[
+\underset{\varepsilon\rightarrow0}{\text{lim}}\|\varphi_{\varepsilon}*f-f\|_p=0
+\]</div>
 </li>
-<li>
-<p><strong>定理：</strong>设非负函数<span class="arithmatex">\(\varphi(x)\in L^1(\mathbb{R}^n)\)</span>，且<span class="arithmatex">\(\|\varphi\|_1=1\)</span>。若
-    $$
-    f\in L^p(\mathbb{R}^n),\quad 1\le p&lt;\infty
-    $$
-    则有
-    $$
-    \underset{\varepsilon\rightarrow0}{\text{lim}}|\varphi_{\varepsilon}*f-f|_p=0
-    $$</p>
-<blockquote>
-<p>[!TIP]</p>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p><strong>证明：</strong></p>
-<p>以<span class="arithmatex">\(\mathbb{R}\)</span>上的函数为例，根据卷积的定义
-$$
+<p>以<span class="arithmatex">\(\mathbb{R}\)</span>上的函数为例，根据卷积的定义</p>
+<div class="arithmatex">\[
 \begin{aligned}
-\varphi_{\varepsilon}<em>f(x)=&amp;\int_{\mathbb{R}}f(x-y)\varphi_{\varepsilon}(y)\text{d}y\
-=&amp;\int_{\mathbb{R}}f(x-y)\cdot\varepsilon^{-1}\cdot\varphi\left(\frac{y}{\varepsilon}\right)\text{d}y\
-=&amp;\int_{\mathbb{R}}f(x-y)\cdot\varphi\left(\frac{y}{\varepsilon}\right)\text{d}\frac{y}{\varepsilon}\
-=&amp;\int_{\mathbb{R}}f(x-\varepsilon y)\cdot\varphi\left(y\right)\text{d}y\
+\varphi_{\varepsilon}*f(x)=&amp;\int_{\mathbb{R}}f(x-y)\varphi_{\varepsilon}(y)\text{d}y\\\\
+=&amp;\int_{\mathbb{R}}f(x-y)\cdot\varepsilon^{-1}\cdot\varphi\left(\frac{y}{\varepsilon}\right)\text{d}y\\\\
+=&amp;\int_{\mathbb{R}}f(x-y)\cdot\varphi\left(\frac{y}{\varepsilon}\right)\text{d}\frac{y}{\varepsilon}\\\\
+=&amp;\int_{\mathbb{R}}f(x-\varepsilon y)\cdot\varphi\left(y\right)\text{d}y\\\\
 \end{aligned}
-$$
-<span class="arithmatex">\(\varphi(x)\in L^1(\mathbb{R}^n)\)</span>是非负函数，且<span class="arithmatex">\(\|\varphi\|_1=1\)</span>，所以
-$$
+\]</div>
+<p><span class="arithmatex">\(\varphi(x)\in L^1(\mathbb{R}^n)\)</span>是非负函数，且<span class="arithmatex">\(\|\varphi\|_1=1\)</span>，所以</p>
+<div class="arithmatex">\[
 \int_{\mathbb{R}}\varphi(y)\text{d}y=1\Rightarrow\int_{\mathbb{R}}f(x)\varphi(y)\text{d}y=f(x)
-$$
-进一步可得
-$$
+\]</div>
+<p>进一步可得</p>
+<div class="arithmatex">\[
 \begin{aligned}
-|\varphi_{\varepsilon}</em>f(x)-f(x)|&amp;=\Big|\int_{\mathbb{R}}[f(x-\varepsilon y)-f(x)]\cdot\varphi\left(y\right)\text{d}y\Big|\
-&amp;\le\int_{\mathbb{R}}|f(x-\varepsilon y)-f(x)||\varphi(y)|^{\frac{1}{p}}|\varphi(y)|^{\frac{1}{q}}\text{d}y\
-&amp;\le\left[\int_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p|\varphi(y)|\text{d}y\right]^{\frac{1}{p}}\cdot\left[\int_{\mathbb{R}}|\varphi(y)|\text{d}y\right]^{\frac{1}{q}}\
+|\varphi_{\varepsilon}*f(x)-f(x)|&amp;=\Big|\int_{\mathbb{R}}[f(x-\varepsilon y)-f(x)]\cdot\varphi\left(y\right)\text{d}y\Big|\\\\
+&amp;\le\int_{\mathbb{R}}|f(x-\varepsilon y)-f(x)||\varphi(y)|^{\frac{1}{p}}|\varphi(y)|^{\frac{1}{q}}\text{d}y\\\\
+&amp;\le\left[\int_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p|\varphi(y)|\text{d}y\right]^{\frac{1}{p}}\cdot\left[\int_{\mathbb{R}}|\varphi(y)|\text{d}y\right]^{\frac{1}{q}}\\\\
 &amp;=\left[\int_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p|\varphi(y)|\text{d}y\right]^{\frac{1}{p}}
 \end{aligned}
-$$
-对上式两端作<span class="arithmatex">\(p\)</span>次乘方再对<span class="arithmatex">\(x\)</span>作积分，运用Fubini定理得
-$$
+\]</div>
+<p>对上式两端作<span class="arithmatex">\(p\)</span>次乘方再对<span class="arithmatex">\(x\)</span>作积分，运用Fubini定理得</p>
+<div class="arithmatex">\[
 \begin{aligned}
-\int_{\mathbb{R}}|\varphi_{\varepsilon}<em>f(x)-f(x)|^p\text{d}x&amp;=\iint_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p|\varphi(y)|\text{d}y\text{d}x\
-&amp;=\iint_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p|\varphi(y)|\text{d}x\text{d}y\
-&amp;\le\int_{\mathbb{R}}|\varphi(y)|\left{\int_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p\text{d}x\right}\text{d}y
+\int_{\mathbb{R}}|\varphi_{\varepsilon}*f(x)-f(x)|^p\text{d}x&amp;=\iint_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p|\varphi(y)|\text{d}y\text{d}x\\\\
+&amp;=\iint_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p|\varphi(y)|\text{d}x\text{d}y\\\\
+&amp;\le\int_{\mathbb{R}}|\varphi(y)|\left\{\int_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p\text{d}x\right\}\text{d}y
 \end{aligned}
-$$
-令<span class="arithmatex">\(\varepsilon\rightarrow0\)</span>，因为
-$$
-\int_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p\text{d}x\le2^p|f|<em>p^p
-$$
-由控制收敛定理得
-$$
-\underset{\varepsilon\rightarrow 0}{\text{lim}}\int</em>{\mathbb{R}}|\varphi_{\varepsilon}</em>f(x)-f(x)|^p\text{d}x\le\int_{\mathbb{R}}|\varphi(y)|\left{\underset{\varepsilon\rightarrow 0}{\text{lim}}\int_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p\text{d}x\right}\text{d}y=0
-$$</p>
-</blockquote>
-</li>
+\]</div>
+<p>令<span class="arithmatex">\(\varepsilon\rightarrow0\)</span>，因为</p>
+<div class="arithmatex">\[
+\int_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p\text{d}x\le2^p\|f\|_p^p
+\]</div>
+<p>由控制收敛定理得</p>
+<div class="arithmatex">\[
+\underset{\varepsilon\rightarrow 0}{\text{lim}}\int_{\mathbb{R}}|\varphi_{\varepsilon}*f(x)-f(x)|^p\text{d}x\le\int_{\mathbb{R}}|\varphi(y)|\left\{\underset{\varepsilon\rightarrow 0}{\text{lim}}\int_{\mathbb{R}}|f(x-\varepsilon y)-f(x)|^p\text{d}x\right\}\text{d}y=0
+\]</div>
+</div>
+<ul>
 <li>
 <p><strong>e.g.</strong></p>
-<blockquote>
-<p>[!NOTE]</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ol>
 <li>
 <p>函数<span class="arithmatex">\(\varphi(x)=\chi_{[-\frac{1}{2},\frac{1}{2}]}\)</span>，则
-   $$
-   \varphi_{\varepsilon}(x)=\frac{1}{\varepsilon}\chi_{[-\frac{\varepsilon}{2},\frac{\varepsilon}{2}]}(x)
-   $$
-   任意<span class="arithmatex">\(f\in L^p(\mathbb{R})\)</span>，有
-   $$
-   \varphi_{\varepsilon}*f(x)=\frac{1}{\varepsilon}\int_{x-\frac{\varepsilon}{2}}^{x+\frac{\varepsilon}{2}}f(y)\text{d}y:=f_{\varepsilon}(x)
-   $$
-   所以由Young's不等式，<span class="arithmatex">\(\|f_{\varepsilon}\|_p\le\|f\|_p\)</span>，且由恒等逼近，<span class="arithmatex">\(f_{\varepsilon}\overset{L^p}{\longrightarrow}f\)</span>.</p>
+    $$
+    \varphi_{\varepsilon}(x)=\frac{1}{\varepsilon}\chi_{[-\frac{\varepsilon}{2},\frac{\varepsilon}{2}]}(x)
+    $$
+    任意<span class="arithmatex">\(f\in L^p(\mathbb{R})\)</span>，有
+    $$
+    \varphi_{\varepsilon}*f(x)=\frac{1}{\varepsilon}\int_{x-\frac{\varepsilon}{2}}^{x+\frac{\varepsilon}{2}}f(y)\text{d}y:=f_{\varepsilon}(x)
+    $$
+    所以由Young's不等式，<span class="arithmatex">\(\|f_{\varepsilon}\|_p\le\|f\|_p\)</span>，且由恒等逼近，<span class="arithmatex">\(f_{\varepsilon}\overset{L^p}{\longrightarrow}f\)</span>.</p>
 </li>
 <li>
 <p>在<span class="arithmatex">\((0,1)\)</span>上定义函数
-   $$
-   y=\varphi(x)=\left[1+\exp\left(\frac{1}{1-x}-\frac{1}{x}\right)\right]^{-1}
-   $$
-   然后令
-   $$
-   \begin{cases}
-   \varphi(0)=1,\
-   \varphi(x)=0,&amp;x\ge 1\
-   \varphi(x)=\varphi(-x),&amp;x&lt;0
-   \end{cases}
-   $$
-   可证明<span class="arithmatex">\(\varphi\in C_c^{\infty}(\mathbb{R})\)</span>，记
-   $$
-   \varphi_n(x)=n\varphi(nx)/|\varphi|_1,\quad n=1,2,...
-   $$
-   任给
-   $$
-   f\in L^p(\mathbb{R}),\quad 1\le p&lt;\infty
-   $$
-   令
-   $$
-   f_n=\varphi_n *f\Rightarrow f_n\in C^{\infty}(\mathbb{R}),f_n\overset{L^p}{\longrightarrow}f
-   $$
-   结论：每个函数<span class="arithmatex">\(f\in L^p(\mathbb{R})\)</span>可用无限次可微函数<span class="arithmatex">\(L^p\)</span>逼近，换句话说，<span class="arithmatex">\(C^{\infty}(\mathbb{R})\)</span>是<span class="arithmatex">\(L^p(\mathbb{R})\)</span>的稠密子空间；</p>
+    $$
+    y=\varphi(x)=\left[1+\exp\left(\frac{1}{1-x}-\frac{1}{x}\right)\right]^{-1}
+    $$
+    然后令
+    $$
+    \begin{cases}
+    \varphi(0)=1,\\
+    \varphi(x)=0,&amp;x\ge 1\\
+    \varphi(x)=\varphi(-x),&amp;x&lt;0
+    \end{cases}
+    $$
+    可证明<span class="arithmatex">\(\varphi\in C_c^{\infty}(\mathbb{R})\)</span>，记
+    $$
+    \varphi_n(x)=n\varphi(nx)/|\varphi|_1,\quad n=1,2,...
+    $$
+    任给
+    $$
+    f\in L^p(\mathbb{R}),\quad 1\le p&lt;\infty
+    $$
+    令
+    $$
+    f_n=\varphi_n *f\Rightarrow f_n\in C^{\infty}(\mathbb{R}),f_n\overset{L^p}{\longrightarrow}f
+    $$
+    结论：每个函数<span class="arithmatex">\(f\in L^p(\mathbb{R})\)</span>可用无限次可微函数<span class="arithmatex">\(L^p\)</span>逼近，换句话说，<span class="arithmatex">\(C^{\infty}(\mathbb{R})\)</span>是<span class="arithmatex">\(L^p(\mathbb{R})\)</span>的稠密子空间；</p>
 </li>
 <li>
 <p>考虑函数
-   $$
-   W(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}
-   $$
-   类似地，可得到结论：每个<span class="arithmatex">\(f\in L^p[a,b]\)</span>可用多项式<span class="arithmatex">\(L^p\)</span>逼近，因此区间<span class="arithmatex">\([a,b]\)</span>上的全体多项式是空间<span class="arithmatex">\(L^p[a,b]\)</span>的稠密线性子空间。</p>
+    $$
+    W(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}
+    $$
+    类似地，可得到结论：每个<span class="arithmatex">\(f\in L^p[a,b]\)</span>可用多项式<span class="arithmatex">\(L^p\)</span>逼近，因此区间<span class="arithmatex">\([a,b]\)</span>上的全体多项式是空间<span class="arithmatex">\(L^p[a,b]\)</span>的稠密线性子空间。</p>
 </li>
 </ol>
-</blockquote>
+</div>
+</li>
+</ul>
 </li>
 </ul>
 <h2 id="_6">傅立叶变换</h2>
 <h3 id="definition_2">Definition</h3>
 <ul>
-<li>对于任意的<span class="arithmatex">\(f\in L(\mathbb{R})\)</span>，令
-  $$
-  \widehat{f}(t)=\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}f(x)e^{-itx}\text{d}x
-  $$</li>
-</ul>
+<li>
+<p>对于任意的<span class="arithmatex">\(f\in L(\mathbb{R})\)</span>，令
+    $$
+    \widehat{f}(t)=\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}f(x)e^{-itx}\text{d}x
+    $$</p>
 <blockquote>
 <p>根据助教习题课上的讲解，还有一种等价的写法如下所示，虽然笔者尚不清楚两者为什么是等价的。</p>
-<p>[!NOTE]</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>还有一种写法：
 $$
 \widehat{f}(t)=\int_{\mathbb{R}}f(x)e^{-2\pi\cdot itx}\text{d}x
 $$</p>
-</blockquote>
-<ul>
+</div>
+</li>
 <li>
 <p>速降函数空间<span class="arithmatex">\(S\)</span>
-  $$
-  f\in S\Leftrightarrow\forall \alpha,\beta\in \mathbb{N},\quad\underset{x\in\mathbb{R}}{\text{sup}}\hspace{0.1cm}|x|^{\alpha}|f^{(\beta)}(x)|&lt;\infty
-  $$</p>
+    $$
+    f\in S\Leftrightarrow\forall \alpha,\beta\in \mathbb{N},\quad\underset{x\in\mathbb{R}}{\text{sup}}\hspace{0.1cm}|x|^{\alpha}|f^{(\beta)}(x)|&lt;\infty
+    $$</p>
 </li>
 <li>
 <p>逆变换：若<span class="arithmatex">\(g\in S(\mathbb{R})\)</span>，则
-  $$
-  g(x)=\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}\widehat{g}(t)e^{ixt}\text{d}t
-  $$</p>
+    $$
+    g(x)=\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}\widehat{g}(t)e^{ixt}\text{d}t
+    $$</p>
 </li>
 </ul>
-<blockquote>
-<p>[!TIP]</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>建议不要管这么多，直接记两个公式：
 $$
 \begin{aligned}
-\hat{f}(\xi)=&amp;\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}e^{-ix\xi}f(x)\text{d}x\
-\check{f}(\xi)=&amp;\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}e^{ix\xi}f(x)\text{d}x\
+\hat{f}(\xi)=&amp;\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}e^{-ix\xi}f(x)\text{d}x\\
+\check{f}(\xi)=&amp;\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}e^{ix\xi}f(x)\text{d}x\\
 \end{aligned}
 $$</p>
-</blockquote>
+</div>
 <h3 id="properties_1">Properties</h3>
 <ul>
-<li>设<span class="arithmatex">\(\tau_hf(x)=f(x-h)\)</span>，则
-  $$
-  \widehat{\tau_hf(x)}=e^{-ih\xi}\widehat{f}(\xi)
-  $$</li>
-</ul>
-<blockquote>
-<p>[!TIP]</p>
-</blockquote>
-<ul>
-<li>与上一个性质类似的，有
-  $$
-  \widehat{e^{ihx}f}(\xi)=\tau_h\widehat{f}(\xi)
-  $$</li>
-</ul>
-<blockquote>
-<p>[!TIP]</p>
-</blockquote>
-<ul>
-<li>设<span class="arithmatex">\(f_{\lambda}(x)=\frac{1}{\lambda}f(\frac{x}{\lambda})\)</span>，则
-  $$
-  \widehat{f_{\lambda}}(\xi)=\widehat{f}(\lambda\xi)
-  $$</li>
-</ul>
-<blockquote>
-<p>[!TIP]</p>
-</blockquote>
-<ul>
-<li>卷积
-  $$
-  \widehat{f*g}(\xi)=\sqrt{2\pi}\cdot\widehat{f}(\xi)\cdot\widehat{g}(\xi)
-  $$</li>
-</ul>
-<blockquote>
-<p>[!TIP]</p>
-</blockquote>
-<ul>
-<li>若<span class="arithmatex">\(f\in L^1\cap C^1\)</span>且<span class="arithmatex">\(f^{\prime}\in L^1\)</span>，那么<span class="arithmatex">\(\widehat{f^{\prime}}(\xi)=i\xi\widehat{f}(\xi)\)</span></li>
-</ul>
-<blockquote>
-<p>[!TIP]
-$$
+<li>
+<p>设<span class="arithmatex">\(\tau_hf(x)=f(x-h)\)</span>，则
+    $$
+    \widehat{\tau_hf(x)}=e^{-ih\xi}\widehat{f}(\xi)
+    $$</p>
+</li>
+<li>
+<p>与上一个性质类似的，有
+    $$
+    \widehat{e^{ihx}f}(\xi)=\tau_h\widehat{f}(\xi)
+    $$</p>
+</li>
+<li>
+<p>设<span class="arithmatex">\(f_{\lambda}(x)=\frac{1}{\lambda}f(\frac{x}{\lambda})\)</span>，则
+    $$
+    \widehat{f_{\lambda}}(\xi)=\widehat{f}(\lambda\xi)
+    $$</p>
+</li>
+<li>
+<p>卷积
+    $$
+    \widehat{f*g}(\xi)=\sqrt{2\pi}\cdot\widehat{f}(\xi)\cdot\widehat{g}(\xi)
+    $$</p>
+</li>
+<li>
+<p>若<span class="arithmatex">\(f\in L^1\cap C^1\)</span>且<span class="arithmatex">\(f^{\prime}\in L^1\)</span>，那么<span class="arithmatex">\(\widehat{f^{\prime}}(\xi)=i\xi\widehat{f}(\xi)\)</span></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="arithmatex">\[
 \begin{aligned}
-\widehat{f^{\prime}}(\xi)&amp;=\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}e^{-ix\xi}f^{\prime}(x)\text{d}x\
-&amp;=\frac{1}{\sqrt{2\pi}}f(x)e^{-ix\xi}\Big|<em>{-\infty}^{\infty}-\frac{1}{\sqrt{2\pi}}(-i\xi)\int</em>{\mathbb{R}}f(x)e^{-ix\xi }\text{d}x\
+\widehat{f^{\prime}}(\xi)&amp;=\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}e^{-ix\xi}f^{\prime}(x)\text{d}x\\\\
+&amp;=\frac{1}{\sqrt{2\pi}}f(x)e^{-ix\xi}\Big|_{-\infty}^{\infty}-\frac{1}{\sqrt{2\pi}}(-i\xi)\int_{\mathbb{R}}f(x)e^{-ix\xi }\text{d}x\\\\
 &amp;=i\xi\widehat{f}(\xi)
 \end{aligned}
-$$
-该结论还可以进一步推广，即
-$$
+\]</div>
+<p>该结论还可以进一步推广，即</p>
+<div class="arithmatex">\[
 \widehat{f^{(k)}}(\xi)=(i\xi)^k\widehat{f}(\xi)
-$$</p>
-</blockquote>
+\]</div>
+</div>
+</li>
+</ul>
 <h2 id="plancherel-paserval">Plancherel &amp; Paserval</h2>
 <h3 id="plancherel">Plancherel定理</h3>
 <p>存在<span class="arithmatex">\(L^2(\mathbb{R})\)</span>到自身的一个一一在上线性映射<span class="arithmatex">\(\Psi\)</span>，它满足
@@ -2824,8 +2845,8 @@ $$</p>
 <h2 id="_7">度量空间</h2>
 <h3 id="definition_3">Definition</h3>
 <ul>
-<li><strong>度量空间(Metric Space)</strong></li>
-</ul>
+<li>
+<p><strong>度量空间(Metric Space)</strong></p>
 <p>设<span class="arithmatex">\(X\)</span>是一个非空集，若存在<span class="arithmatex">\(X\)</span>上一个双变量实值函数<span class="arithmatex">\(\rho(x,y):X\times X\rightarrow\mathbb{R}_{\ge 0}\)</span>，满足下列3个条件：</p>
 <ul>
 <li>
@@ -2848,21 +2869,19 @@ $$</p>
 </li>
 </ul>
 <p><span class="arithmatex">\(\forall x,y,z\in X\)</span>，则称<span class="arithmatex">\(\rho\)</span>为<span class="arithmatex">\(X\)</span>上一个度量（距离），<span class="arithmatex">\(X\)</span>称为度量空间（距离空间）。一个以<span class="arithmatex">\(\rho\)</span>为度量的度量空间<span class="arithmatex">\(X\)</span>记作<span class="arithmatex">\((X,\rho)\)</span>。</p>
-<ul>
+</li>
 <li>
 <p>开集</p>
-</li>
-<li>
-<p>领域</p>
-</li>
-<li>
-<p>内点</p>
+<ul>
+<li>邻域</li>
+<li>内点</li>
+</ul>
 </li>
 <li>
 <p>闭集</p>
-</li>
-<li>
-<p>极限</p>
+<ul>
+<li>极限</li>
+</ul>
 </li>
 </ul>
 <h3 id="properties_2">Properties</h3>
@@ -2877,8 +2896,8 @@ $$</p>
 <h2 id="_8">赋范线性空间</h2>
 <h3 id="definition_4">Definition</h3>
 <ul>
-<li><strong>范数&amp;赋范线性空间</strong></li>
-</ul>
+<li>
+<p><strong>范数&amp;赋范线性空间</strong></p>
 <p>设<span class="arithmatex">\(X\)</span>是复（或实）线性空间，对于<span class="arithmatex">\(X\)</span>中每个元素<span class="arithmatex">\(x\)</span>，按照一定法则使其与一非负实数<span class="arithmatex">\(\|x\|\)</span>相对应，满足</p>
 <ul>
 <li>
@@ -2892,10 +2911,12 @@ $$</p>
 </li>
 </ul>
 <p>其中<span class="arithmatex">\(\mathbb{K}\)</span>是复（或实）线性赋范空间，<span class="arithmatex">\(\|x\|\)</span>为元素<span class="arithmatex">\(x\)</span>的范数或模。</p>
-<ul>
-<li><strong>Banach空间</strong></li>
-</ul>
+</li>
+<li>
+<p><strong>Banach空间</strong></p>
 <p>完备的线性赋范空间称为Banach空间。</p>
+</li>
+</ul>
 
 
 
@@ -2918,7 +2939,7 @@ $$</p>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年3月8日 13:50:44 UTC">2026年3月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年3月8日 16:15:18 UTC">2026年3月8日</span>
   </span>
 
     
@@ -2938,12 +2959,13 @@ $$</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:2831258907@qq.com">blue968</a>
+        <a href="mailto:2831258907@qq.com">blue968</a>, 
+        <a href="mailto:waterminju@outlook.com">water-mi</a>
     </nav>
   </span>
 

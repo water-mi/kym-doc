@@ -25,7 +25,7 @@
     
     
       
-        <title>Probability Theory - 匡院笔记分享</title>
+        <title>Probability Theory (quick review) - 匡院笔记分享</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#probability-theory" class="md-skip">
+        <a href="#probability-theory-quick-review" class="md-skip">
           跳转至
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Probability Theory
+              Probability Theory (quick review)
             
           </span>
         </div>
@@ -670,7 +670,7 @@
   <span class="md-ellipsis">
     
   
-    Probability Theory
+    Probability Theory (quick review)
   
 
     
@@ -688,7 +688,7 @@
   <span class="md-ellipsis">
     
   
-    Probability Theory
+    Probability Theory (quick review)
   
 
     
@@ -1376,7 +1376,7 @@
   
 
 
-<h1 id="probability-theory">Probability Theory</h1>
+<h1 id="probability-theory-quick-review">Probability Theory (quick review)</h1>
 <h2 id="discrete-random-variable">Discrete Random Variable</h2>
 <h3 id="_1">伯努利试验</h3>
 <ul>
@@ -1384,7 +1384,7 @@
 <p>随机变量<span class="arithmatex">\(X\in\{0,1\}\)</span>，概率质量函数（pmf）为
   $$
   p_X(k)=\bold{Pr}(X=k)=\begin{cases}
-  p&amp;\text{if }k=1\
+  p&amp;\text{if }k=1\\
   1-p&amp;\text{if }k=0
   \end{cases}
   $$</p>
@@ -1392,7 +1392,7 @@
 <li>
 <p>期望和方差
   $$
-  \text{E}[X]=0\cdot(1-p)+1\cdot p=p\
+  \text{E}[X]=0\cdot(1-p)+1\cdot p=p\\
   \text{Var}[X]=\text{E}[X^2]-\text{E}[X]^2=p-p^2=p(1-p)
   $$</p>
 </li>
@@ -1412,7 +1412,7 @@
   $$
   其中<span class="arithmatex">\(X_i\)</span>表示第<span class="arithmatex">\(i\)</span>次伯努利试验的结果，那么
   $$
-  \text{E}[X]=\text{E}[X_1]+\cdots+\text{E}[X_n]=np\
+  \text{E}[X]=\text{E}[X_1]+\cdots+\text{E}[X_n]=np\\
   \text{Var}[X]=\underset{i=1}{\overset{n}\sum}\text{Var}[X_i]=np(1-p)
   $$</p>
 </li>
@@ -1432,16 +1432,16 @@
   $$
   其中<span class="arithmatex">\(I_k\in\{0,1\}\)</span>表示是否前<span class="arithmatex">\(k-1\)</span>次试验都失败了，如果是都失败了则取<span class="arithmatex">\(1\)</span>，那么
   $$
-  \text{E}[X]=\underset{k=1}{\overset{\infty}\sum}\text{E}[I_k]=\underset{k=1}{\overset{\infty}\sum}(1-p)^{k-1}=\frac{1}{p}\
+  \text{E}[X]=\underset{k=1}{\overset{\infty}\sum}\text{E}[I_k]=\underset{k=1}{\overset{\infty}\sum}(1-p)^{k-1}=\frac{1}{p}\\
   $$
   方差要难算一点，计算平方均值需要借助几何分布的无记忆性，也就是第三个等号的推导
   $$
   \begin{aligned}
-  \text{E}[X^2]&amp;=\text{E}[X^2|X&gt;1]\cdot(1-p)+\text{E}[X^2|X=1]\cdot p\
-  &amp;=\text{E}[((X-1)+1)^2|X&gt;1]\cdot(1-p)+p\
-  &amp;=\text{E}[(X+1)^2]\cdot(1-p)+p\
-  &amp;=(1-p)\text{E}[X^2]+2(1-p)\text{E}[X]+(1-p)+p\
-  &amp;=(1-p)\text{E}[X^2]+2(1-p)/p+1\
+  \text{E}[X^2]&amp;=\text{E}[X^2|X&gt;1]\cdot(1-p)+\text{E}[X^2|X=1]\cdot p\\
+  &amp;=\text{E}[((X-1)+1)^2|X&gt;1]\cdot(1-p)+p\\
+  &amp;=\text{E}[(X+1)^2]\cdot(1-p)+p\\
+  &amp;=(1-p)\text{E}[X^2]+2(1-p)\text{E}[X]+(1-p)+p\\
+  &amp;=(1-p)\text{E}[X^2]+2(1-p)/p+1\\
   \end{aligned}
   $$
   解得
@@ -1462,7 +1462,10 @@
 <li>
 <p><span class="arithmatex">\(X\)</span>：在获取<span class="arithmatex">\(r\)</span>次成功之前所做的失败的伯努利试验次数，<span class="arithmatex">\(X\sim \text{Nebin}(r,p)\)</span>
   $$
-  p_X(k)=\bold{Pr}(X=k)=\binom{k+r-1}{k}(1-p)^kp^r=(-1)^{k}\binom{-r}{k}(1-p)^kp^r,\quad k=0,1,2,...
+  \begin{aligned}
+  p_X(k)&amp;=\bold{Pr}(X=k)=\binom{k+r-1}{k}(1-p)^kp^r \\
+  &amp;=(-1)^{k}\binom{-r}{k}(1-p)^kp^r,\quad k=0,1,2,...
+  \end{aligned}
   $$</p>
 </li>
 <li>
@@ -1511,23 +1514,23 @@
 <p>期望可以直接求
   $$
   \begin{aligned}
-  \text{E}[X]&amp;=\underset{k\ge 0}\sum k\frac{e^{-\lambda}\lambda^k}{k!}\
-  &amp;=\underset{k\ge 1}\sum\frac{e^{-\lambda}\lambda^k}{(k-1)!}\
-  &amp;=\underset{k\ge 0}\sum\frac{e^{-\lambda}\lambda^{k+1}}{k!}\
-  &amp;=\lambda\underset{k\ge 0}\sum\frac{e^{-\lambda}\lambda^k}{k!}\
+  \text{E}[X]&amp;=\underset{k\ge 0}\sum k\frac{e^{-\lambda}\lambda^k}{k!}\\
+  &amp;=\underset{k\ge 1}\sum\frac{e^{-\lambda}\lambda^k}{(k-1)!}\\
+  &amp;=\underset{k\ge 0}\sum\frac{e^{-\lambda}\lambda^{k+1}}{k!}\\
+  &amp;=\lambda\underset{k\ge 0}\sum\frac{e^{-\lambda}\lambda^k}{k!}\\
   &amp;=\lambda
   \end{aligned}
   $$
   方差类似
   $$
   \begin{aligned}
-  \text{E}[X^2]&amp;=\underset{k\ge 0}\sum k^2\frac{e^{-\lambda}\lambda^k}{k!}\
-  &amp;=\underset{k\ge 1}\sum k\frac{e^{-\lambda}\lambda^k}{(k-1)!}\
-  &amp;=\underset{k\ge 0}\sum(k+1)\frac{e^{-\lambda}\lambda^{k+1}}{k!}\
-  &amp;=\lambda\underset{k\ge 0}\sum(k+1)\frac{e^{-\lambda}\lambda^{k}}{k!}\
-  &amp;=\lambda\text{E}[X+1]\
-  &amp;=\lambda(\text{E}[X]+1)\
-  &amp;=\lambda(\lambda+1)\
+  \text{E}[X^2]&amp;=\underset{k\ge 0}\sum k^2\frac{e^{-\lambda}\lambda^k}{k!}\\
+  &amp;=\underset{k\ge 1}\sum k\frac{e^{-\lambda}\lambda^k}{(k-1)!}\\
+  &amp;=\underset{k\ge 0}\sum(k+1)\frac{e^{-\lambda}\lambda^{k+1}}{k!}\\
+  &amp;=\lambda\underset{k\ge 0}\sum(k+1)\frac{e^{-\lambda}\lambda^{k}}{k!}\\
+  &amp;=\lambda\text{E}[X+1]\\
+  &amp;=\lambda(\text{E}[X]+1)\\
+  &amp;=\lambda(\lambda+1)\\
   \text{Var}[X]&amp;=\text{E}[X^2]-\text{E}[X]^2=\lambda(\lambda+1)-\lambda^2=\lambda
   \end{aligned}
   $$</p>
@@ -1552,7 +1555,7 @@ $$</p>
 <p>令<span class="arithmatex">\(X_1,\cdots,X_n\in\{0,1\}\)</span>是独立试验，<span class="arithmatex">\(X=\underset{i=1}{\overset{n}\sum}X_i\)</span>，且<span class="arithmatex">\(\mu=\text{E}[X]\)</span>，那么对任意<span class="arithmatex">\(\delta&gt;0\)</span>，有upper tail
 $$
 \bold{Pr}(X\ge(1+\delta)\mu)\le\left(\frac{e^{\delta}}{(1+\delta)^{(1+\delta)}}\right)^{\mu}\le\begin{cases}
-e^{-\frac{\mu\delta^2}{3}},&amp;0&lt;\delta&lt;1\
+e^{-\frac{\mu\delta^2}{3}},&amp;0&lt;\delta&lt;1\\
 2^{-(1+\delta)\mu},&amp;(1+\delta)\ge 2e
 \end{cases}
 $$
@@ -1622,7 +1625,7 @@ $$</p>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年3月8日 13:50:44 UTC">2026年3月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年3月8日 16:15:18 UTC">2026年3月8日</span>
   </span>
 
     
@@ -1642,12 +1645,13 @@ $$</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:2831258907@qq.com">blue968</a>
+        <a href="mailto:2831258907@qq.com">blue968</a>, 
+        <a href="mailto:waterminju@outlook.com">water-mi</a>
     </nav>
   </span>
 
