@@ -28,7 +28,7 @@
 
 ## 路由器工作原理
 
-![ch4-p1](pics/chapter4/ch4-p1.png)
+![ch4-p1](https://s41.ax1x.com/2026/03/09/peiM8RP.png)
 
 输入端口：这里的端口指的是路由器的物理输入和输出接口；
 
@@ -42,7 +42,7 @@
 
 ### 输入端口处理和基于目的地转发
 
-![ch4-p2](pics/chapter4/ch4-p2.png)
+![ch4-p2](https://s41.ax1x.com/2026/03/09/peiMGxf.png)
 
 查找表可以看作是一个目的地址到链路借口的映射，但是由于目的地址范围通常很大，这时可以采用一种最长前缀匹配（longest prefix matching）的方式来转发
 
@@ -110,7 +110,7 @@
 
 ### ipv4 数据报格式
 
-![ch4-p3](pics/chapter4/ch4-p3.png)
+![ch4-p3](https://s41.ax1x.com/2026/03/09/peiM3Gt.png)
 
 - 版本：不同的 ip 版本使用不同的数据报格式
 - 首部长度：ipv4 数据包可能包含一些可变数量的选项，用这 4 比特来确定载荷时即开始的地方，大多数不包含选项，所以一般的首部 **20 字节**
@@ -148,9 +148,9 @@ ip 广播地址 255.255.255.255：当一台主机发送一个目的地址为 255
 
     dhcp 是一个**客户-服务器协议**，通常情况下每个子网都有一台 dhcp 服务器或者一个 dhcp 中继代理（比如路由器）来告知该网络的 dhcp 服务器地址
 
-![ch4-p4](pics/chapter4/ch4-p4.png)
+![ch4-p4](https://s41.ax1x.com/2026/03/09/peiMYM8.png)
 
-![ch4-p5](pics/chapter4/ch4-p5.png)
+![ch4-p5](https://s41.ax1x.com/2026/03/09/peiMQIA.png)
 
 对于一台新到达的主机，dhcp 是一个四步骤的过程：
 
@@ -186,11 +186,11 @@ nat 路由器对外界的行为如同一个具有单一 ip 地址的单一设备
 
 nat 路由器上的 nat 转换表 告知路由器应该将某个分组转发给哪个内部主机
 
-![ch4-p6](pics/chapter4/ch4-p6.png)
+![ch4-p6](https://s41.ax1x.com/2026/03/09/peiMMad.png)
 
 ### ipv6
 
-![ch4-p7](pics/chapter4/ch4-p7.png)
+![ch4-p7](https://s41.ax1x.com/2026/03/09/peiM1PI.png)
 
 首部大小为 40 字节
 

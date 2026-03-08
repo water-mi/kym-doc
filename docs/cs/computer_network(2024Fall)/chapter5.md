@@ -14,7 +14,7 @@
 
 分类：
 
-![ch5-p1](pics/chapter5/ch5-p1.png)
+![ch5-p1](https://s41.ax1x.com/2026/03/09/peiMwIs.png)
 
 ### 链路状态路由选择算法（LS）
 
