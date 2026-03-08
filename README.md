@@ -1,5 +1,7 @@
 # 这里是匡院课程笔记分享站
 
+![](https://img.shields.io/github/stars/kym-doc/doc?style=for-the-badge)
+
 打算将这个网站建立成匡亚明学院本科学习过程中的一个笔记分享站。
 
 !!! note "什么是可以分享的？"
