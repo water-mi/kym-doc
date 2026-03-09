@@ -69,9 +69,8 @@ plugins:
   - git-authors
 
 nav:
-  - 主页: 
-    - index.md
-    - pdf 与代码块样例: test.md
+  - 主页: index.md
+  - pdf 与代码块样例: test.md
   - 多专业合上/通修:
     - all/index.md
     - 近代应用数学:
