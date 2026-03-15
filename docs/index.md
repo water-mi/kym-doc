@@ -21,30 +21,14 @@ Mkdocs: [官方](https://www.mkdocs.org/), [非官方中文](https://hellowac.gi
 
 Material: [官方](https://squidfunk.github.io/mkdocs-material/), [非官方中文](https://mkdocs.dbtgo.com/getting-started/)
 
-!!! note
-
-    对于协助开发者，您可能需要进行本地调试，环境依赖文件位于 `requirements.txt` 中，在安装好 python 之后，在顶层文件夹中执行如下命令
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
 ## 如何反馈阅读中发现的问题或者疑惑
 
 如果在阅读笔记的过程中发现了任何问题或者有任何疑惑，您可以通过 Github 仓库的 Issues 来反馈这些问题或者疑惑，或者直接通过社交媒体联系相应的文档维护者。
 
 ## 如何贡献自己的笔记
 
-一般来说，理想的笔记情况应当是采用 Markdown 格式，对于其中的图片，应尽可能采用外链（可以考虑使用图床或 njubox），未来会逐渐替换掉原来存储在仓库中的图片。
-
-然而，现实中很多的笔记通常采用手写，转换成 Markdown 是一个麻烦的工作，所以可以采用 pdf + 外链链接的形式来完成（pdf 请上传至外部网盘如 njubox 中）
-
 如果您有意向分享自己的笔记，有如下两种方式：
 
-1. 本地部署 Mkdocs，并通过 Pull requrest 来提交。
+1. 将仓库 Clone 到本地，进行修改，并通过 Pull Request 来提交。您可以参考此页面“[添加笔记教程](contribute.md)”来了解文档的添加方式以及如何使用 Mkdocs 来预览修改后的效果。
 
-2. 联系他人代为提交
-
-!!! note "关于自定义语法的说明"
-
-    得益于 Material 主题提供的强大功能，您可以使用一些自定义语法来增强笔记的可读性和美观度。例如，您可以使用 `!!! note` 语法来创建一个 note 类型的提示框，或者使用 `!!! warning` 来创建警告框。这些自定义语法在 Mkdocs 中被很好地支持，并且可以显著提升笔记的视觉效果和阅读体验。（具体样式可以参考本文件）
+2. 联系其他文档维护者代为提交，您应当向其提供 Markdown 源文件（如果该课程是首次添加，您需要额外提供一个 `about.md` 文件用于介绍该课程）或者已经整理好的 pdf 文件。
