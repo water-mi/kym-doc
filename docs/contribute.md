@@ -8,7 +8,7 @@
 git clone https://github.com/kym-doc/doc.git
 ```
 
-!!! hint "如果需要本地部署"
+!!! tip "如果需要本地部署"
 
     您可能需要进行本地调试，环境依赖文件位于 `requirements.txt` 中，在安装好 python 之后，在顶层文件夹中执行如下命令
 
@@ -70,7 +70,7 @@ nav:
 
     得益于 Material 主题提供的强大功能，您可以使用一些自定义语法来增强笔记的可读性和美观度。例如，您可以使用 `!!! note` 语法来创建一个 note 类型的提示框，或者使用 `!!! warning` 来创建警告框。这些[自定义语法](https://squidfunk.github.io/mkdocs-material/reference/admonitions/)被很好地支持，并且可以显著提升笔记的视觉效果和阅读体验。
 
-    此外，Typora 支持的 `[!NOTE]` 语法在这里是无法使用的，如果你的文件中包含了这样的语法，会导致预览时显示异常。您可以考虑通过 Agent 来转换这些语法，将其转换为 Material 主题所支持的格式。
+    此外，Typora 等编辑器支持的 `[!NOTE]` 语法在这里是无法使用的，如果你的文件中包含了这样的语法，会导致预览时显示异常。您可以考虑通过 Agent 来转换这些语法，将其转换为 Material 主题所支持的格式。
 
 ## 如何将 pdf 文件链接到网站
 
