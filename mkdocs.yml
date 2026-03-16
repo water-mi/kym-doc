@@ -1,8 +1,8 @@
 site_name: 匡院笔记分享
-site_url: https://kym-doc.github.io/doc/
+site_url: https://kym-doc.github.io/
 
 repo_name: KYM-DOC
-repo_url: https://github.com/kym-doc/doc
+repo_url: https://github.com/kym-doc/kym-doc.github.io/
 edit_uri: edit/main/docs/
 
 theme: 
